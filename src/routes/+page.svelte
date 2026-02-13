@@ -1,16 +1,4 @@
 <script lang="ts">
-	import { fade } from 'svelte/transition';
-	import { onMount } from 'svelte';
-	
-	let mounted = false;
-	
-	onMount(() => {
-		// Small delay for more noticeable entrance animation
-		setTimeout(() => {
-			mounted = true;
-		}, 150);
-	});
-	
 	// Svelte action for scroll reveal animations
 	function reveal(node: HTMLElement, options = { delay: 0 }) {
 		const observer = new IntersectionObserver(
@@ -60,98 +48,54 @@
 </svelte:head>
 
 <!-- Hero Section -->
-<section class="min-h-screen flex items-center pt-28 md:pt-32 pb-12 md:pb-16 px-6 bg-noise">
+<section class="flex items-center pt-40 md:pt-40 pb-16 md:pb-40 px-6 bg-noise">
 	<div class="max-w-7xl mx-auto w-full">
 		<div class="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 items-center">
-			{#if mounted}
-				<div>
-					<p class="text-sm font-semibold uppercase tracking-widest mb-6" style="color: var(--terracotta);" in:fade={{ duration: 800, delay: 100 }}>Digital Commerce Strategist</p>
-					<h1 class="text-6xl lg:text-7xl heading-serif mb-8" in:fade={{ duration: 800, delay: 250 }}>
-						Building digital experiences that <span class="gradient-text">drive growth</span>
-					</h1>
-					<p class="text-xl text-gray-600 mb-8 leading-relaxed" in:fade={{ duration: 800, delay: 400 }}>
-						I architect eCommerce platforms, design seamless user experiences, and lead digital product teams from strategy through execution. Currently scaling DTC operations at Frog Bikes.
-					</p>
-					<div class="flex gap-4" in:fade={{ duration: 800, delay: 550 }}>
-						<a href="#work" class="cta-button"><span>View Projects</span></a>
-						<a href="https://www.linkedin.com/in/olivergbagley/" target="_blank" class="cta-button bg-transparent border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-cream" style="border-color: var(--charcoal);"><span>LinkedIn →</span></a>
-					</div>
+			<div>
+				<p class="text-sm font-semibold uppercase tracking-widest mb-6 fade-in-up" style="color: var(--terracotta); animation-delay: 0.1s;">Digital Commerce Strategist</p>
+				<h1 class="text-6xl lg:text-7xl heading-serif mb-8 fade-in-up" style="animation-delay: 0.25s;">
+					Building digital experiences that <span class="gradient-text">drive growth</span>
+				</h1>
+				<p class="text-xl text-gray-600 mb-8 leading-relaxed fade-in-up" style="animation-delay: 0.4s;">
+					I architect eCommerce platforms, design seamless user experiences, and lead digital product teams from strategy through execution. Currently scaling DTC operations at Frog Bikes.
+				</p>
+				<div class="flex gap-4 fade-in-up" style="animation-delay: 0.55s;">
+					<a href="#work" class="cta-button"><span>View Projects</span></a>
+					<a href="https://www.linkedin.com/in/olivergbagley/" target="_blank" class="cta-button bg-transparent border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-cream" style="border-color: var(--charcoal);"><span>LinkedIn →</span></a>
 				</div>
-				<div class="flex justify-center lg:justify-end w-full">
-					<div class="relative w-full max-w-[280px] md:max-w-md">
-						<!-- Background Blob -->
-						<div class="absolute -top-4 -right-4 w-full h-full" in:fade={{ duration: 800, delay: 300 }}>
-							<div class="hero-bg-blob w-full h-full opacity-20 animate-float-slow" style="background: linear-gradient(135deg, var(--terracotta) 0%, var(--amber) 100%);"></div>
+			</div>
+			<div class="flex justify-center lg:justify-end w-full">
+				<div class="relative w-full max-w-[280px] md:max-w-md">
+					<!-- Background Blob -->
+					<div class="absolute -top-4 -right-4 w-full h-full fade-in-up" style="animation-delay: 0.3s;">
+						<div class="hero-bg-blob w-full h-full opacity-20 animate-float-slow" style="background: linear-gradient(135deg, var(--terracotta) 0%, var(--amber) 100%);"></div>
+					</div>
+					
+					<!-- Main Image -->
+					<div class="relative z-10 fade-in-up" style="animation-delay: 0.45s;">
+						<div class="hero-image-container overflow-hidden shadow-2xl animate-float-medium transition-all duration-300">
+							<img src="/media/images/images/oliver.jpg" alt="Oliver Bagley" class="hero-image w-full h-auto object-cover">
 						</div>
-						
-						<!-- Main Image -->
-						<div class="relative z-10" in:fade={{ duration: 800, delay: 450 }}>
-							<div class="hero-image-container overflow-hidden shadow-2xl animate-float-medium transition-all duration-300">
-								<img src="https://www.oliverbagley.com/media/images/oliver.jpg" alt="Oliver Bagley" class="hero-image w-full h-auto object-cover">
-							</div>
-						</div>
+					</div>
 
-						<!-- Floating Stat Card -->
-						<div class="absolute bottom-8 -left-8 z-20 hidden md:block max-w-[16rem]" in:fade={{ duration: 800, delay: 600 }}>
-							<div class="bg-white p-6 shadow-xl animate-float-medium" style="border-radius: 1rem;">
-								<div class="space-y-4">
-									<div>
-										<div class="text-4xl font-bold heading-serif mb-1" style="color: var(--terracotta);">8+</div>
-										<p class="text-xs text-gray-600 uppercase tracking-wider font-semibold">Years Experience</p>
-									</div>
-									<div class="border-t border-gray-100"></div>
-									<div>
-										<div class="text-4xl font-bold heading-serif mb-1" style="color: var(--amber);">£10M+</div>
-										<p class="text-xs text-gray-600 uppercase tracking-wider font-semibold">Revenue Generated</p>
-									</div>
+					<!-- Floating Stat Card -->
+					<div class="absolute bottom-8 -left-8 z-20 hidden md:block max-w-[16rem] fade-in-up" style="animation-delay: 0.6s;">
+						<div class="bg-white p-6 shadow-xl animate-float-medium" style="border-radius: 1rem;">
+							<div class="space-y-4">
+								<div>
+									<div class="text-4xl font-bold heading-serif mb-1" style="color: var(--terracotta);">8+</div>
+									<p class="text-xs text-gray-600 uppercase tracking-wider font-semibold">Years Experience</p>
+								</div>
+								<div class="border-t border-gray-100"></div>
+								<div>
+									<div class="text-4xl font-bold heading-serif mb-1" style="color: var(--amber);">£10M+</div>
+									<p class="text-xs text-gray-600 uppercase tracking-wider font-semibold">Revenue Generated</p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			{:else}
-				<!-- Fallback content without animations for SSR -->
-				<div>
-					<p class="text-sm font-semibold uppercase tracking-widest mb-6" style="color: var(--terracotta);">Digital Commerce Strategist</p>
-					<h1 class="text-6xl lg:text-7xl heading-serif mb-8">
-						Building digital experiences that <span class="gradient-text">drive growth</span>
-					</h1>
-					<p class="text-xl text-gray-600 mb-8 leading-relaxed">
-						I architect eCommerce platforms, design seamless user experiences, and lead digital product teams from strategy through execution. Currently scaling DTC operations at Frog Bikes.
-					</p>
-					<div class="flex gap-4">
-						<a href="#work" class="cta-button"><span>View Projects</span></a>
-						<a href="https://www.linkedin.com/in/olivergbagley/" target="_blank" class="cta-button bg-transparent border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-cream" style="border-color: var(--charcoal);"><span>LinkedIn →</span></a>
-					</div>
-				</div>
-				<div class="flex justify-center lg:justify-end w-full">
-					<div class="relative w-full max-w-[280px] md:max-w-md">
-						<div class="absolute -top-4 -right-4 w-full h-full">
-							<div class="hero-bg-blob w-full h-full opacity-20 animate-float-slow" style="background: linear-gradient(135deg, var(--terracotta) 0%, var(--amber) 100%);"></div>
-						</div>
-						<div class="relative z-10">
-							<div class="hero-image-container overflow-hidden shadow-2xl animate-float-medium transition-all duration-300">
-								<img src="https://www.oliverbagley.com/media/images/oliver.jpg" alt="Oliver Bagley" class="hero-image w-full h-auto object-cover">
-							</div>
-						</div>
-						<div class="absolute bottom-8 -left-8 z-20 hidden md:block max-w-[16rem]">
-							<div class="bg-white p-6 shadow-xl animate-float-medium" style="border-radius: 1rem;">
-								<div class="space-y-4">
-									<div>
-										<div class="text-4xl font-bold heading-serif mb-1" style="color: var(--terracotta);">8+</div>
-										<p class="text-xs text-gray-600 uppercase tracking-wider font-semibold">Years Experience</p>
-									</div>
-									<div class="border-t border-gray-100"></div>
-									<div>
-										<div class="text-4xl font-bold heading-serif mb-1" style="color: var(--amber);">£10M+</div>
-										<p class="text-xs text-gray-600 uppercase tracking-wider font-semibold">Revenue Generated</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			{/if}
+			</div>
 		</div>
 	</div>
 </section>
@@ -169,7 +113,7 @@
 		<div class="projects-grid">
 			<a href="/work/dll-digital-catalog" class="project-item group" use:reveal={{ delay: 100 }}>
 				<div class="project-image">
-					<img src="https://www.oliverbagley.com/media/images/work_thumbs/dll_digital_catalog_thumb.jpg" alt="DLL Digital Catalog">
+					<img src="/media/images/images/work_thumbs/dll_digital_catalog_thumb.jpg" alt="DLL Digital Catalog">
 				</div>
 				<div class="project-content">
 					<div class="flex gap-2 mb-3 flex-wrap">
@@ -190,7 +134,7 @@
 
 			<a href="/work/fordpass" class="project-item group" use:reveal={{ delay: 200 }}>
 				<div class="project-image">
-					<img src="https://www.oliverbagley.com/media/images/work_thumbs/ford_thumb_1.jpg" alt="FordPass Transformation">
+					<img src="/media/images/images/work_thumbs/ford_thumb_1.jpg" alt="FordPass Transformation">
 				</div>
 				<div class="project-content">
 					<div class="flex gap-2 mb-3 flex-wrap">
@@ -211,7 +155,7 @@
 
 			<a href="/work/fox-finance" class="project-item group" use:reveal={{ delay: 300 }}>
 				<div class="project-image">
-					<img src="https://www.oliverbagley.com/media/images/work_thumbs/fox_thumb.jpg" alt="Fox Smart Finance">
+					<img src="/media/images/images/work_thumbs/fox_thumb.jpg" alt="Fox Smart Finance">
 				</div>
 				<div class="project-content">
 					<div class="flex gap-2 mb-3 flex-wrap">
@@ -232,7 +176,7 @@
 
 			<a href="/work/ankura-services" class="project-item group" use:reveal={{ delay: 100 }}>
 				<div class="project-image">
-					<img src="https://www.oliverbagley.com/media/images/work_thumbs/ankura_thumb.jpg" alt="Ankura Services">
+					<img src="/media/images/images/work_thumbs/ankura_thumb.jpg" alt="Ankura Services">
 				</div>
 				<div class="project-content">
 					<div class="flex gap-2 mb-3 flex-wrap">
@@ -253,7 +197,7 @@
 
 			<a href="/work/calgary-brewing" class="project-item group" use:reveal={{ delay: 200 }}>
 				<div class="project-image">
-					<img src="https://www.oliverbagley.com/media/images/work_thumbs/calgary_thumb.jpg" alt="Calgary Brewing Co.">
+					<img src="/media/images/images/work_thumbs/calgary_thumb.jpg" alt="Calgary Brewing Co.">
 				</div>
 				<div class="project-content">
 					<div class="flex gap-2 mb-3 flex-wrap">
@@ -446,34 +390,48 @@
 			<h3 class="text-2xl font-bold text-gray-800">Trusted eCommerce Platforms</h3>
 		</div>
 		
-		<!-- Infinite scroll container -->
-		<div class="relative overflow-hidden w-full">
-			<div class="flex gap-12 animate-scroll">
-				<!-- First set -->
-				<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] flex-shrink-0">
-					<span class="text-2xl font-bold text-gray-700">Shopify</span>
+		<!-- Simple horizontal scroll -->
+		<div class="overflow-hidden relative">
+			<div class="flex gap-8 w-max animate-infinite-scroll">
+				<div class="flex gap-8 shrink-0">
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
+						<span class="text-2xl font-bold text-gray-700">Shopify</span>
+					</div>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
+						<span class="text-2xl font-bold text-gray-700">Magento</span>
+					</div>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
+						<span class="text-2xl font-bold text-gray-700">NetSuite</span>
+					</div>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
+						<span class="text-2xl font-bold text-gray-700">Alumio</span>
+					</div>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
+						<span class="text-2xl font-bold text-gray-700">WooCommerce</span>
+					</div>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
+						<span class="text-2xl font-bold text-gray-700">BigCommerce</span>
+					</div>
 				</div>
-				<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] flex-shrink-0">
-					<span class="text-2xl font-bold text-gray-700">Magento</span>
-				</div>
-				<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] flex-shrink-0">
-					<span class="text-2xl font-bold text-gray-700">NetSuite</span>
-				</div>
-				<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] flex-shrink-0">
-					<span class="text-2xl font-bold text-gray-700">Alumio</span>
-				</div>
-				<!-- Duplicate set for seamless loop -->
-				<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] flex-shrink-0">
-					<span class="text-2xl font-bold text-gray-700">Shopify</span>
-				</div>
-				<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] flex-shrink-0">
-					<span class="text-2xl font-bold text-gray-700">Magento</span>
-				</div>
-				<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] flex-shrink-0">
-					<span class="text-2xl font-bold text-gray-700">NetSuite</span>
-				</div>
-				<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] flex-shrink-0">
-					<span class="text-2xl font-bold text-gray-700">Alumio</span>
+				<div class="flex gap-8 shrink-0" aria-hidden="true">
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
+						<span class="text-2xl font-bold text-gray-700">Shopify</span>
+					</div>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
+						<span class="text-2xl font-bold text-gray-700">Magento</span>
+					</div>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
+						<span class="text-2xl font-bold text-gray-700">NetSuite</span>
+					</div>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
+						<span class="text-2xl font-bold text-gray-700">Alumio</span>
+					</div>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
+						<span class="text-2xl font-bold text-gray-700">WooCommerce</span>
+					</div>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
+						<span class="text-2xl font-bold text-gray-700">BigCommerce</span>
+					</div>
 				</div>
 			</div>
 		</div>
