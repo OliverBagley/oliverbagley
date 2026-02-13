@@ -1,40 +1,196 @@
-# Oliver Bagley Portfolio - Complete 2026 Refresh
+# Oliver Bagley Portfolio - SvelteKit Edition
 
-Modern, professional portfolio with external CSS, multiple pages, case studies, and legal pages. Built with HTML + Tailwind CSS for Cloudflare Pages deployment.
+Modern, professional portfolio built with **SvelteKit**, **Bun**, **Tailwind CSS**, and deployed on **Cloudflare Pages**.
 
-## 📁 File Structure
+## 🚀 Quick Start
+
+```bash
+# Install dependencies
+bun install
+
+# Start development server
+bun run dev
+
+# Build for production
+bun run build
+
+# Preview production build
+bun run preview
+```
+
+Visit http://localhost:5173 to see your site.
+
+## 📁 Project Structure
 
 ```
 /
-├── index.html                    # Homepage with hero, projects, contact
-├── about.html                    # About page with story and skills
-├── services.html                 # Services page with offerings
-├── privacy.html                  # Privacy policy
-├── terms.html                    # Terms & conditions
-├── css/
-│   └── main.css                  # All shared styles
-├── case-studies/
-│   ├── dll-digital-catalog.html  # DLL case study
-│   ├── fordpass.html             # FordPass case study
-│   ├── fox-finance.html          # Fox Finance case study
-│   └── ankura-services.html      # Ankura case study
-├── README.md                     # This file
-├── CUSTOMIZATION.md              # Quick edit guide
-└── .gitignore                    # Git ignore rules
+├── src/
+│   ├── app.html                 # HTML template with fonts
+│   ├── app.css                  # Global styles + Tailwind
+│   └── routes/
+│       ├── +layout.svelte       # Shared nav + footer
+│       ├── +page.svelte         # Homepage
+│       ├── about/               # About page
+│       ├── services/            # Services page
+│       ├── privacy/             # Privacy policy
+│       └── terms/               # Terms & conditions
+├── static/
+│   ├── _headers                 # Cloudflare security headers
+│   ├── _redirects               # URL redirects
+│   └── media/                   # Images and assets
+├── svelte.config.js             # SvelteKit configuration
+├── vite.config.ts               # Vite build config
+├── tailwind.config.js           # Tailwind customization
+└── package.json                 # Dependencies and scripts
 ```
 
-## 🚀 Quick Deploy to Cloudflare Pages
+## 🎨 Design System
 
-### Build Configuration
+- **Colors**: Terracotta (#d77a48) + Amber (#f4a261) on cream (#faf7f2)
+- **Fonts**: Instrument Serif (headings) + Work Sans (body)
+- **Layout**: Component-based with shared nav/footer
+- **Animations**: Scroll reveals, hover effects, smooth transitions
 
-When setting up your project in Cloudflare Pages, use the following settings:
-- **Build Command:** `bun run build`
-- **Build Output Directory:** `/` (or leave blank for root)
+## 🛠 Tech Stack
 
-### Setup Instructions
+- **Framework**: SvelteKit 2.0
+- **Runtime**: Bun 1.3.9
+- **Styling**: Tailwind CSS 3.4
+- **Hosting**: Cloudflare Pages (via @sveltejs/adapter-cloudflare)
+- **Type Safety**: TypeScript
 
-1. **Install Dependencies**
+## 🚀 Deployment to Cloudflare Pages
+
+### Via Git (Recommended)
+
+1. **Push to GitHub**
    ```bash
+   git init
+   git add .
+   git commit -m "SvelteKit migration complete"
+   git remote add origin <your-repo-url>
+   git push -u origin main
+   ```
+
+2. **Connect to Cloudflare Pages**
+   - Go to [dash.cloudflare.com](https://dash.cloudflare.com)
+   - Pages → Create a project → Connect to Git
+   - Select your repository
+   - **Build settings**:
+     - Framework preset: SvelteKit
+     - Build command: `bun run build`
+     - Build output directory: `.svelte-kit/cloudflare`
+   - Click "Save and Deploy"
+
+3. **Add Custom Domain** (Optional)
+   - In project settings → Custom domains
+   - Add `oliverbagley.com` and `www.oliverbagley.com`
+   - Update your DNS records as instructed
+
+### Direct Upload
+
+```bash
+# Build the project
+bun run build
+
+# Upload the .svelte-kit/cloudflare directory to Cloudflare Pages
+```
+
+## ✨ Features
+
+### Pages
+- **Homepage**: Hero, projects gallery, services overview, contact
+- **About**: Professional story, experience, approach, skills
+- **Services**: Service offerings, process, engagement models
+- **Legal**: Privacy policy and terms & conditions
+- **Case Studies**: (To be migrated - see MIGRATION_COMPLETE.md)
+
+### Technical Features
+- ✅ Component-based architecture
+- ✅ Server-side rendering (SSR) ready
+- ✅ Clean URL structure (`/about` vs `/about.html`)
+- ✅ Automatic code splitting
+- ✅ Fast HMR (Hot Module Replacement)
+- ✅ TypeScript support
+- ✅ SEO optimized with meta tags
+- ✅ Responsive design
+- ✅ Scroll reveal animations
+
+## 📝 Development
+
+### Available Scripts
+
+```bash
+# Development server with HMR
+bun run dev
+
+# Type checking
+bun run check
+bun run check:watch
+
+# Production build
+bun run build
+
+# Preview production build locally  
+bun run preview
+```
+
+### Adding New Pages
+
+Create a new folder in `src/routes/`:
+
+```bash
+mkdir -p src/routes/new-page
+```
+
+Create `src/routes/new-page/+page.svelte`:
+
+```svelte
+<svelte:head>
+	<title>Page Title — Oliver Bagley</title>
+	<meta name="description" content="Page description" />
+</svelte:head>
+
+<section class="py-24 px-6 bg-cream">
+	<div class="max-w-7xl mx-auto">
+		<h1 class="text-5xl heading-serif mb-8">Page Content</h1>
+		<!-- Your content -->
+	</div>
+</section>
+```
+
+The page will automatically include the nav and footer from `+layout.svelte`.
+
+## 🔄 Migration from Static HTML
+
+This project was migrated from static HTML to SvelteKit. See [MIGRATION_COMPLETE.md](MIGRATION_COMPLETE.md) for details on what changed and remaining tasks.
+
+### Key Benefits of SvelteKit
+
+1. **No Code Duplication**: Nav/footer defined once in layout
+2. **Hot Module Replacement**: See changes instantly  
+3. **Cleaner URLs**: `/about` instead of `/about.html`
+4. **Better Performance**: Code splitting and lazy loading
+5. **TypeScript**: Type safety out of the box
+6. **Easy Deployment**: Single build command for Cloudflare Pages
+
+## 📚 Documentation
+
+- [SvelteKit Documentation](https://kit.svelte.dev/docs)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [Cloudflare Pages + SvelteKit](https://developers.cloudflare.com/pages/framework-guides/deploy-a-svelte-site/)
+
+## 🤝 Contributing
+
+This is a personal portfolio, but feel free to use it as a template for your own projects!
+
+## 📄 License
+
+© 2026 Oliver Bagley. All rights reserved.
+
+---
+
+**Need help completing the migration?** Check [MIGRATION_COMPLETE.md](MIGRATION_COMPLETE.md) for next steps.
    bun install
    ```
 

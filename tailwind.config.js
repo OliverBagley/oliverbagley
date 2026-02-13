@@ -1,5 +1,6 @@
-module.exports = {
-  content: ["./*.html", "./case-studies/**/*.html", "./src/**/*.{js,ts}"],
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
       colors: {
@@ -31,4 +32,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};

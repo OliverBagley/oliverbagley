@@ -1,0 +1,20 @@
+# Cloudflare Pages redirects and rewrites
+
+# Redirect old .html links to clean URLs
+/about.html /about 301
+/services.html /services 301
+/privacy.html /privacy 301
+/terms.html /terms 301
+
+# Redirect /work to /#work
+/work /#work 302
+
+# Legacy case study redirects
+/case-studies/dll-digital-catalog.html /work/dll-digital-catalog 301
+/case-studies/fordpass.html /work/fordpass 301
+/case-studies/fox-finance.html /work/fox-finance 301
+/case-studies/ankura-services.html /work/ankura-services 301
+/case-studies/calgary-brewing.html /work/calgary-brewing 301
+
+# SPA fallback
+/* /index.html 200

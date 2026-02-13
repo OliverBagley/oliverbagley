@@ -1,3 +1,9 @@
+# SvelteKit
+.svelte-kit
+build
+.vercel
+_app
+
 # macOS
 .DS_Store
 .AppleDouble
