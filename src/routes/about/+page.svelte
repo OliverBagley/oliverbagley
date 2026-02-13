@@ -55,30 +55,40 @@
     <meta name="description" content="Learn about Oliver Bagley's approach to digital commerce, UX design, and product leadership.">
 </svelte:head>
 
-<!-- Breadcrumb -->
-<div class="pt-32 pb-8 px-6 bg-cream">
-    <div class="max-w-7xl mx-auto breadcrumb">
-        <a href="/">Home</a>
-        <span>/</span>
-        <span>About</span>
-    </div>
-</div>
-
-<!-- Hero -->
-<section class="py-20 px-6 bg-cream">
-    <div class="max-w-4xl mx-auto">
-		{#if mounted}
-        <h1 class="text-6xl lg:text-7xl heading-serif mb-8" in:fade={{ duration: 800, delay: 100 }}>Strategy meets execution</h1>
-        <p class="text-2xl text-gray-600 leading-relaxed" in:fade={{ duration: 800, delay: 300 }}>
-            I bridge the gap between business vision and technical reality, building digital commerce experiences that deliver measurable results.
-        </p>
-		{:else}
-        <h1 class="text-6xl lg:text-7xl heading-serif mb-8">Strategy meets execution</h1>
-        <p class="text-2xl text-gray-600 leading-relaxed">
-            I bridge the gap between business vision and technical reality, building digital commerce experiences that deliver measurable results.
-        </p>
-		{/if}
-    </div>
+<!-- Hero Section -->
+<section class="hero-section relative pt-32 md:pt-40 pb-16 md:pb-24 px-6 overflow-hidden">
+	<!-- Background Image -->
+	<div class="absolute inset-0 z-0">
+		<img 
+			src="https://images.unsplash.com/photo-1433838552652-f9a46b332c40?q=80&w=2070&auto=format&fit=crop" 
+			alt="Mountain Sunset landscape with Hot air balloons" 
+			class="w-full h-full object-cover"
+		/>
+		<!-- Dark overlay for text readability -->
+		<div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
+	</div>
+	
+	<div class="max-w-7xl mx-auto relative z-10">
+		<div class="max-w-4xl">
+			<!-- Breadcrumb -->
+			<p class="text-sm font-semibold uppercase tracking-widest mb-4" style="color: var(--terracotta);">
+				<a href="/" class="hover:opacity-80 transition-opacity">Home</a>
+				<span class="mx-2">/</span>
+				<span>About</span>
+			</p>
+			{#if mounted}
+			<h1 class="text-5xl lg:text-7xl heading-serif mb-6 text-white" in:fade={{ duration: 800, delay: 100 }}>Strategy meets execution</h1>
+			<p class="text-xl lg:text-2xl text-gray-300 leading-relaxed" in:fade={{ duration: 800, delay: 300 }}>
+				I bridge the gap between business vision and technical reality, building digital commerce experiences that deliver measurable results.
+			</p>
+			{:else}
+			<h1 class="text-5xl lg:text-7xl heading-serif mb-6 text-white">Strategy meets execution</h1>
+			<p class="text-xl lg:text-2xl text-gray-300 leading-relaxed">
+				I bridge the gap between business vision and technical reality, building digital commerce experiences that deliver measurable results.
+			</p>
+			{/if}
+		</div>
+	</div>
 </section>
 
 <!-- Story -->
@@ -86,9 +96,25 @@
     <div class="max-w-4xl mx-auto">
         <div class="grid md:grid-cols-3 gap-12 mb-16" use:reveal>
             <div class="md:col-span-1">
-                <h2 class="text-3xl heading-serif mb-4">My Story</h2>
+                <!-- Image Section -->
+                <div class="flex justify-center mb-8">
+                    <div class="relative w-full max-w-[280px]">
+                        <!-- Background Blob -->
+                        <div class="absolute -top-4 -right-4 w-full h-full">
+                            <div class="hero-bg-blob w-full h-full opacity-20 animate-float-slow" style="background: linear-gradient(135deg, var(--terracotta) 0%, var(--amber) 100%);"></div>
+                        </div>
+                        
+                        <!-- Main Image -->
+                        <div class="relative z-10">
+                            <div class="hero-image-container overflow-hidden shadow-2xl animate-float-medium transition-all duration-300">
+                                <img src="/media/images/images/oliver.jpg" alt="Oliver Bagley" class="hero-image w-full h-auto object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="md:col-span-2 space-y-6 text-lg leading-relaxed">
+                <div class="text-5xl heading-serif mb-4" style="color: var(--terracotta);">My Story</div>           
                 <p>
                     I started my career at the intersection of design and technology, quickly realizing that the most successful digital products come from understanding both the creative vision and the technical constraints.
                 </p>
@@ -104,7 +130,7 @@
         <!-- Experience Highlights -->
         <div class="grid md:grid-cols-2 gap-8 py-16 border-t border-gray-200" use:reveal={{ delay: 200 }}>
             <div>
-                <div class="text-5xl heading-serif mb-4" style="color: var(--terracotta);">Current</div>
+                <div class="text-4xl heading-serif mb-4" style="color: var(--terracotta);">Current</div>
                 <h3 class="text-2xl font-bold mb-2">eCommerce Manager</h3>
                 <p class="text-gray-600 mb-4">Frog Bikes</p>
                 <ul class="space-y-2 text-gray-600">
@@ -115,7 +141,7 @@
                 </ul>
             </div>
             <div>
-                <div class="text-5xl heading-serif mb-4" style="color: var(--amber);">Previous</div>
+                <div class="text-4xl heading-serif mb-4" style="color: var(--amber);">Previous</div>
                 <h3 class="text-2xl font-bold mb-2">Digital Product Lead</h3>
                 <p class="text-gray-600 mb-4">Various Agencies & Clients</p>
                 <ul class="space-y-2 text-gray-600">

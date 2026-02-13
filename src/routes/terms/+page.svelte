@@ -3,17 +3,36 @@
     <meta name="description" content="Terms and conditions for oliverbagley.com">
 </svelte:head>
 
-<!-- Content -->
-<div class="pt-32 pb-20 bg-cream">
-    <div class="legal-content">
-        <div class="breadcrumb mb-8">
-            <a href="/">Home</a>
-            <span>/</span>
-            <span>Terms & Conditions</span>
-        </div>
+<!-- Hero Section -->
+<section class="relative pt-32 md:pt-40 pb-16 md:pb-20 px-6 overflow-hidden">
+	<!-- Background Image -->
+	<div class="absolute inset-0 z-0">
+		<img 
+			src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop" 
+			alt="Mountain landscape" 
+			class="w-full h-full object-cover"
+		/>
+		<!-- Dark overlay for text readability -->
+		<div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
+	</div>
+	
+	<div class="max-w-7xl mx-auto relative z-10">
+		<div class="max-w-4xl">
+			<!-- Breadcrumb -->
+			<p class="text-sm font-semibold uppercase tracking-widest mb-4" style="color: var(--terracotta);">
+				<a href="/" class="hover:opacity-80 transition-opacity">Home</a>
+				<span class="mx-2">/</span>
+				<span>Terms & Conditions</span>
+			</p>
+			<h1 class="text-5xl lg:text-7xl heading-serif mb-4 text-white">Terms & Conditions</h1>
+			<p class="text-gray-300">Last updated: February 11, 2026</p>
+		</div>
+	</div>
+</section>
 
-        <h1 class="text-5xl heading-serif mb-4">Terms & Conditions</h1>
-        <p class="last-updated">Last updated: February 11, 2026</p>
+<!-- Content -->
+<div class="pb-20 bg-cream">
+    <div class="legal-content">
 
         <p>Please read these Terms and Conditions ("Terms") carefully before using oliverbagley.com (the "Site") operated by Oliver Bagley ("I", "me", or "my").</p>
 

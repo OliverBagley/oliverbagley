@@ -30,14 +30,14 @@
 
 <nav class="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-warm-gray/10">
 	<div class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
-		<a href="/" class="text-2xl font-bold heading-serif" on:click={closeMobileMenu}>OB</a>
+		<a href="/" class="text-3xl font-bold heading-serif" on:click={closeMobileMenu}>OB</a>
 		
 		<!-- Desktop Navigation -->
-		<div class="hidden md:flex gap-8 items-center">
-			<a href="/#work" class="nav-link text-sm font-medium">Work</a>
+		<div class="hidden md:flex gap-8 items-center uppercase">
+			<a href="/work" class="nav-link text-sm font-medium">Work</a>
 			<a href="/about" class="nav-link text-sm font-medium">About</a>
 			<a href="/services" class="nav-link text-sm font-medium">Services</a>
-			<a href="/#contact" class="cta-button py-2 px-6 text-sm"><span>Let's Talk</span></a>
+			<a href="/#contact" class="cta-button py-2 px-6 text-sm title-uppercase"><span>Let's Talk</span></a>
 		</div>
 		
 		<!-- Mobile Menu Button -->
@@ -65,7 +65,7 @@
 		<div class="md:hidden border-t border-warm-gray/10 bg-gray-50 shadow-lg" transition:slide={{ duration: 200 }}>
 			<div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-2">
 				<a 
-					href="/#work" 
+					href="/work" 
 					class="nav-link text-base font-medium py-3 px-4 rounded-lg hover:bg-warm-gray/10 transition-colors"
 					on:click={closeMobileMenu}
 				>

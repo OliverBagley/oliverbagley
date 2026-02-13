@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { projects } from '$lib/data/projects';
+
 	// Svelte action for scroll reveal animations
 	function reveal(node: HTMLElement, options = { delay: 0 }) {
 		const observer = new IntersectionObserver(
@@ -52,16 +54,16 @@
 	<div class="max-w-7xl mx-auto w-full">
 		<div class="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 items-center">
 			<div>
-				<p class="text-sm font-semibold uppercase tracking-widest mb-6 fade-in-up" style="color: var(--terracotta); animation-delay: 0.1s;">Digital Commerce Strategist</p>
+				<p class="text-sm font-semibold uppercase tracking-widest mb-6 fade-in-up" style="color: var(--terracotta); animation-delay: 0.1s;">Digital Operations & eCommerce Systems Expert</p>
 				<h1 class="text-6xl lg:text-7xl heading-serif mb-8 fade-in-up" style="animation-delay: 0.25s;">
 					Building digital experiences that <span class="gradient-text">drive growth</span>
 				</h1>
 				<p class="text-xl text-gray-600 mb-8 leading-relaxed fade-in-up" style="animation-delay: 0.4s;">
-					I architect eCommerce platforms, design seamless user experiences, and lead digital product teams from strategy through execution. Currently scaling DTC operations at Frog Bikes.
+					I architect eCommerce platforms, design seamless user experiences, and lead digital product teams from strategy through execution. Currently scaling DTC operations at <a href="https://www.frogbikes.com" target="_blank" rel="noopener noreferrer">Frog Bikes</a>.
 				</p>
 				<div class="flex gap-4 fade-in-up" style="animation-delay: 0.55s;">
-					<a href="#work" class="cta-button"><span>View Projects</span></a>
-					<a href="https://www.linkedin.com/in/olivergbagley/" target="_blank" class="cta-button bg-transparent border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-cream" style="border-color: var(--charcoal);"><span>LinkedIn →</span></a>
+					<a href="#work" class="cta-button-secondary hover:bg-charcoal hover:text-cream"><span>View Projects</span></a>
+					<a href="https://www.linkedin.com/in/olivergbagley/" target="_blank" class="cta-button bg-transparent text-charcoal hover:bg-charcoal hover:text-cream" style="border-color: var(--charcoal);"><span>LinkedIn →</span></a>
 				</div>
 			</div>
 			<div class="flex justify-center lg:justify-end w-full">
@@ -111,110 +113,28 @@
 
 		<!-- Project List -->
 		<div class="projects-grid">
-			<a href="/work/dll-digital-catalog" class="project-item group" use:reveal={{ delay: 100 }}>
-				<div class="project-image">
-					<img src="/media/images/images/work_thumbs/dll_digital_catalog_thumb.jpg" alt="DLL Digital Catalog">
-				</div>
-				<div class="project-content">
-					<div class="flex gap-2 mb-3 flex-wrap">
-						<span class="project-tag">Design</span>
-						<span class="project-tag">Development</span>
-						<span class="project-tag">Photography</span>
+			{#each projects as project, i}
+				<a href="/work/{project.slug}" class="project-item group" use:reveal={{ delay: 100 + (i % 3) * 100 }}>
+					<div class="project-image">
+						<img src={project.image} alt={project.title}>
 					</div>
-					<h3 class="project-title">DLL Group Digital Catalog</h3>
-					<p class="project-description">Minimal digital catalog for healthcare vehicles, optimized for iPad exhibition displays with responsive photography.</p>
-					<span class="project-link">
-						View Case Study
-						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-						</svg>
-					</span>
-				</div>
-			</a>
-
-			<a href="/work/fordpass" class="project-item group" use:reveal={{ delay: 200 }}>
-				<div class="project-image">
-					<img src="/media/images/images/work_thumbs/ford_thumb_1.jpg" alt="FordPass Transformation">
-				</div>
-				<div class="project-content">
-					<div class="flex gap-2 mb-3 flex-wrap">
-						<span class="project-tag">Research</span>
-						<span class="project-tag">UX/UI</span>
-						<span class="project-tag">Strategy</span>
+					<div class="project-content">
+						<div class="flex gap-2 mb-2 flex-wrap">
+							{#each project.tags as tag}
+								<span class="project-tag">{tag}</span>
+							{/each}
+						</div>
+						<h3 class="project-title">{project.title}</h3>
+						<p class="project-description">{project.description}</p>
+						<span class="project-link">
+							View Case Study
+							<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+							</svg>
+						</span>
 					</div>
-					<h3 class="project-title">FordPass Transformation</h3>
-					<p class="project-description">Complete reimagining of car sales and aftercare through market research and customer journey optimization.</p>
-					<span class="project-link">
-						View Case Study
-						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-						</svg>
-					</span>
-				</div>
-			</a>
-
-			<a href="/work/fox-finance" class="project-item group" use:reveal={{ delay: 300 }}>
-				<div class="project-image">
-					<img src="/media/images/images/work_thumbs/fox_thumb.jpg" alt="Fox Smart Finance">
-				</div>
-				<div class="project-content">
-					<div class="flex gap-2 mb-3 flex-wrap">
-						<span class="project-tag">Brand</span>
-						<span class="project-tag">Product</span>
-						<span class="project-tag">Full-Stack</span>
-					</div>
-					<h3 class="project-title">Fox Smart Finance</h3>
-					<p class="project-description">End-to-end product development: brand identity, UX design, and full-stack development of finance tracking webapp.</p>
-					<span class="project-link">
-						View Case Study
-						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-						</svg>
-					</span>
-				</div>
-			</a>
-
-			<a href="/work/ankura-services" class="project-item group" use:reveal={{ delay: 100 }}>
-				<div class="project-image">
-					<img src="/media/images/images/work_thumbs/ankura_thumb.jpg" alt="Ankura Services">
-				</div>
-				<div class="project-content">
-					<div class="flex gap-2 mb-3 flex-wrap">
-						<span class="project-tag">Brand</span>
-						<span class="project-tag">Marketing</span>
-						<span class="project-tag">Web</span>
-					</div>
-					<h3 class="project-title">Ankura Services</h3>
-					<p class="project-description">Complete brand development and digital presence for marketing startup, from identity to implementation.</p>
-					<span class="project-link">
-						View Case Study
-						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-						</svg>
-					</span>
-				</div>
-			</a>
-
-			<a href="/work/calgary-brewing" class="project-item group" use:reveal={{ delay: 200 }}>
-				<div class="project-image">
-					<img src="/media/images/images/work_thumbs/calgary_thumb.jpg" alt="Calgary Brewing Co.">
-				</div>
-				<div class="project-content">
-					<div class="flex gap-2 mb-3 flex-wrap">
-						<span class="project-tag">Product</span>
-						<span class="project-tag">Brand</span>
-						<span class="project-tag">Advertising</span>
-					</div>
-					<h3 class="project-title">Calgary Brewing Co.</h3>
-					<p class="project-description">Packaging and advertising design for a craft brewing company, creating distinctive visual identity across bottles, cans, and marketing materials.</p>
-					<span class="project-link">
-						View Case Study
-						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-						</svg>
-					</span>
-				</div>
-			</a>
+				</a>
+			{/each}
 		</div>
 	</div>
 </section>
@@ -238,16 +158,16 @@
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
 					</svg>
 				</div>
-				<h3 class="text-2xl font-bold mb-4 heading-serif">eCommerce Platforms</h3>
+				<h3 class="text-2xl font-bold mb-4 heading-serif">eCommerce Platforms & Presence</h3>
 				<p class="text-gray-600 mb-4 leading-relaxed">
-					Custom Shopify stores, headless commerce architectures, and optimized checkout experiences that convert browsers into buyers.
+					Comprehensive coverage from Shopify to Magento, delivering frictionless online shopping experiences, and optimized user journeys that convert browsers into buyers.
 				</p>
 				<ul class="space-y-2 text-sm text-gray-600">
 					<li class="flex items-start gap-2">
 						<svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--terracotta);" fill="currentColor" viewBox="0 0 20 20">
 							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
 						</svg>
-						<span>Custom theme development</span>
+						<span>Migration, Integration and disaster recovery</span>
 					</li>
 					<li class="flex items-start gap-2">
 						<svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--terracotta);" fill="currentColor" viewBox="0 0 20 20">
@@ -280,13 +200,13 @@
 						<svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--terracotta);" fill="currentColor" viewBox="0 0 20 20">
 							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
 						</svg>
-						<span>Custom API development</span>
+						<span>API & systems development</span>
 					</li>
 					<li class="flex items-start gap-2">
 						<svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--terracotta);" fill="currentColor" viewBox="0 0 20 20">
 							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
 						</svg>
-						<span>ERP & CRM integration</span>
+						<span>ERP & CRM integration expertise</span>
 					</li>
 					<li class="flex items-start gap-2">
 						<svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--terracotta);" fill="currentColor" viewBox="0 0 20 20">
@@ -336,7 +256,7 @@
 				<div>
 					<h3 class="text-3xl font-bold mb-4 heading-serif">One partner, end-to-end</h3>
 					<p class="text-gray-600 leading-relaxed mb-4">
-						Working with multiple agencies for web, mobile, and in-store creates complexity and misalignment. I provide a unified approach to digital commerce—ensuring your online storefront, physical retail experiences, and backend systems work together seamlessly.
+						Working with multiple agencies for web, mobile, and in-store creates complexity and misalignment. I provide a unified approach to digital commerce, ensuring your online storefront, physical retail experiences, and backend systems work together seamlessly.
 					</p>
 					<p class="text-gray-600 leading-relaxed">
 						Whether you're launching a new brand, scaling DTC operations, or modernizing legacy systems, I bring the strategic vision and technical execution to build commerce solutions that grow with your business.
@@ -350,8 +270,8 @@
 							</svg>
 						</div>
 						<div>
-							<h4 class="font-bold mb-1">Strategy-First Approach</h4>
-							<p class="text-sm text-gray-600">Every technical decision aligned with your business goals and customer needs.</p>
+							<h4 class="font-bold mb-1">Systems-First Approach</h4>
+							<p class="text-sm text-gray-600">Comprehensive operations and system based approach ensure every technical decision aligned with your business goals and customer needs.</p>
 						</div>
 					</div>
 					<div class="flex items-start gap-4">
@@ -361,7 +281,7 @@
 							</svg>
 						</div>
 						<div>
-							<h4 class="font-bold mb-1">Rapid Implementation</h4>
+							<h4 class="font-bold mb-1">Rapid Development & Implementation</h4>
 							<p class="text-sm text-gray-600">Agile development process that delivers results quickly without sacrificing quality.</p>
 						</div>
 					</div>
@@ -372,8 +292,8 @@
 							</svg>
 						</div>
 						<div>
-							<h4 class="font-bold mb-1">Scalable Architecture</h4>
-							<p class="text-sm text-gray-600">Built to handle growth, from startup launch to enterprise-level traffic and complexity.</p>
+							<h4 class="font-bold mb-1">Scale with pace</h4>
+							<p class="text-sm text-gray-600">Comprehensive development built for business that want to scale quickly, built to handle growth, from startup launch to enterprise-level traffic and complexity.</p>
 						</div>
 					</div>
 				</div>
