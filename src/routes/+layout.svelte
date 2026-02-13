@@ -16,7 +16,10 @@
 		const unsubscribe = page.subscribe(() => {
 			window.scrollTo({ top: 0, behavior: 'instant' });
 		});
-		return unsubscribe;
+		
+		return () => {
+			unsubscribe();
+		};
 	});
 	
 	function toggleMobileMenu() {

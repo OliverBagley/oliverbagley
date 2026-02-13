@@ -30,3 +30,7 @@ Desktop.ini
 
 # Dependencies
 node_modules/
+
+# Cloudflare Functions
+.wrangler/
+functions/_worker.js
