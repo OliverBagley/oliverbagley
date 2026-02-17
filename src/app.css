@@ -831,3 +831,15 @@ body {
 .project-item:hover .project-link svg {
     transform: translateX(0.35rem);
 }
+
+/* Logo Scroll - Platform Logos */
+.logo-scroll {
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.6s ease-in-out, opacity 0.6s ease-in-out;
+}
+
+.logo-scroll:hover {
+    filter: grayscale(20%);
+    opacity: 1;
+}

@@ -314,43 +314,91 @@
 		<div class="overflow-hidden relative">
 			<div class="flex gap-8 w-max animate-infinite-scroll">
 				<div class="flex gap-8 shrink-0">
-					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
-						<span class="text-2xl font-bold text-gray-700">Shopify</span>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] h-24">
+						<picture>
+							<source srcset="/media/logos/shopify.avif" type="image/avif">
+							<img src="/media/logos/shopify.avif" alt="Shopify" class="logo-scroll h-16 w-auto object-contain">
+						</picture>
 					</div>
-					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
-						<span class="text-2xl font-bold text-gray-700">Magento</span>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] h-24">
+						<picture>
+							<source srcset="/media/logos/magento.avif" type="image/avif">
+							<img src="/media/logos/magento.avif" alt="Magento" class="logo-scroll h-16 w-auto object-contain">
+						</picture>
 					</div>
-					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
-						<span class="text-2xl font-bold text-gray-700">NetSuite</span>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] h-24">
+						<picture>
+							<source srcset="/media/logos/klaviyo.avif" type="image/avif">
+							<img src="/media/logos/klaviyo.avif" alt="Klaviyo" class="logo-scroll h-16 w-auto object-contain">
+						</picture>
 					</div>
-					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
-						<span class="text-2xl font-bold text-gray-700">Alumio</span>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] h-24">
+						<picture>
+							<source srcset="/media/logos/netsuite.avif" type="image/avif">
+							<img src="/media/logos/netsuite.avif" alt="NetSuite" class="logo-scroll h-16 w-auto object-contain">
+						</picture>
 					</div>
-					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
-						<span class="text-2xl font-bold text-gray-700">WooCommerce</span>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] h-24">
+						<picture>
+							<source srcset="/media/logos/alumio.avif" type="image/avif">
+							<img src="/media/logos/alumio.avif" alt="Alumio" class="logo-scroll h-16 w-auto object-contain">
+						</picture>
 					</div>
-					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
-						<span class="text-2xl font-bold text-gray-700">BigCommerce</span>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] h-24">
+						<picture>
+							<source srcset="/media/logos/woocommerce.avif" type="image/avif">
+							<img src="/media/logos/woocommerce.avif" alt="WooCommerce" class="logo-scroll h-16 w-auto object-contain">
+						</picture>
+					</div>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] h-24">
+						<picture>
+							<source srcset="/media/logos/bigcommerce.avif" type="image/avif">
+							<img src="/media/logos/bigcommerce.avif" alt="BigCommerce" class="logo-scroll h-16 w-auto object-contain">
+						</picture>
 					</div>
 				</div>
 				<div class="flex gap-8 shrink-0" aria-hidden="true">
-					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
-						<span class="text-2xl font-bold text-gray-700">Shopify</span>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] h-24">
+						<picture>
+							<source srcset="/media/logos/shopify.avif" type="image/avif">
+							<img src="/media/logos/shopify.avif" alt="Shopify" class="logo-scroll h-16 w-auto object-contain">
+						</picture>
 					</div>
-					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
-						<span class="text-2xl font-bold text-gray-700">Magento</span>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] h-24">
+						<picture>
+							<source srcset="/media/logos/magento.avif" type="image/avif">
+							<img src="/media/logos/magento.avif" alt="Magento" class="logo-scroll h-16 w-auto object-contain">
+						</picture>
 					</div>
-					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
-						<span class="text-2xl font-bold text-gray-700">NetSuite</span>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] h-24">
+						<picture>
+							<source srcset="/media/logos/klaviyo.avif" type="image/avif">
+							<img src="/media/logos/klaviyo.avif" alt="Klaviyo" class="logo-scroll h-16 w-auto object-contain">
+						</picture>
 					</div>
-					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
-						<span class="text-2xl font-bold text-gray-700">Alumio</span>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] h-24">
+						<picture>
+							<source srcset="/media/logos/netsuite.avif" type="image/avif">
+							<img src="/media/logos/netsuite.avif" alt="NetSuite" class="logo-scroll h-16 w-auto object-contain">
+						</picture>
 					</div>
-					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
-						<span class="text-2xl font-bold text-gray-700">WooCommerce</span>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] h-24">
+						<picture>
+							<source srcset="/media/logos/alumio.avif" type="image/avif">
+							<img src="/media/logos/alumio.avif" alt="Alumio" class="logo-scroll h-16 w-auto object-contain">
+						</picture>
 					</div>
-					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px]">
-						<span class="text-2xl font-bold text-gray-700">BigCommerce</span>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] h-24">
+						<picture>
+							<source srcset="/media/logos/woocommerce.avif" type="image/avif">
+							<img src="/media/logos/woocommerce.avif" alt="WooCommerce" class="logo-scroll h-16 w-auto object-contain">
+						</picture>
+					</div>
+					<div class="flex items-center justify-center px-8 py-4 bg-white rounded-lg shadow-sm min-w-[180px] h-24">
+						<picture>
+							<source srcset="/media/logos/bigcommerce.avif" type="image/avif">
+							<img src="/media/logos/bigcommerce.avif" alt="BigCommerce" class="logo-scroll h-16 w-auto object-contain">
+						</picture>
 					</div>
 				</div>
 			</div>
