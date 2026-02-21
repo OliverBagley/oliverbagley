@@ -1,0 +1,270 @@
+import { z } from 'zod';
+import { ServicePillarSchema, ProcessStepSchema, EngagementOptionSchema, TechCategorySchema, BulletItemSchema } from './schemas';
+
+// ─── Hero ─────────────────────────────────────────────────────────────────────
+
+export const servicesHero = z
+	.object({
+		heading: z.string(),
+		subheading: z.string(),
+		backgroundImage: z.string(),
+		backgroundAlt: z.string()
+	})
+	.parse({
+		heading: 'Complete digital commerce ecosystem',
+		subheading:
+			'From online storefronts to in-store experiences, I architect and deliver end-to-end commerce solutions that unify your entire sales operation.',
+		backgroundImage:
+			'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=2076&auto=format&fit=crop',
+		backgroundAlt: 'Mountain terrain'
+	});
+
+// ─── Core service pillars ─────────────────────────────────────────────────────
+
+export const servicesPillars = z
+	.object({
+		eyebrow: z.string(),
+		heading: z.string(),
+		subheading: z.string(),
+		pillars: z.array(ServicePillarSchema)
+	})
+	.parse({
+		eyebrow: 'Full-Stack Solutions',
+		heading: 'Three pillars of digital commerce',
+		subheading:
+			'Comprehensive coverage from Shopify platforms to backend systems, delivering frictionless experiences that convert browsers into buyers.',
+		pillars: [
+			{
+				icon: 'cart',
+				title: 'eCommerce Platforms',
+				description:
+					'Shopify to Magento expertise, delivering frictionless online shopping experiences and optimized user journeys that convert.',
+				bullets: [
+					'Migration, integration & disaster recovery',
+					'Payment gateway integration',
+					'Conversion rate optimization'
+				]
+			},
+			{
+				icon: 'database',
+				title: 'Systems & Integration',
+				description:
+					'Backend systems, APIs, and integrations connecting your commerce stack to ERPs, CRMs, and business intelligence tools.',
+				bullets: [
+					'API & systems development',
+					'ERP & CRM integration (NetSuite, Salesforce)',
+					'Data migration & automation'
+				]
+			},
+			{
+				icon: 'pos',
+				title: 'In-Store & POS',
+				description:
+					'Unified retail experiences with Shopify POS, inventory sync, and omnichannel customer journeys across digital and physical touchpoints.',
+				bullets: ['Shopify POS implementation', 'Real-time inventory management', 'Omnichannel customer data']
+			}
+		]
+	});
+
+// ─── Approach ─────────────────────────────────────────────────────────────────
+
+export const servicesApproach = z
+	.object({
+		eyebrow: z.string(),
+		heading: z.string(),
+		subheading: z.string(),
+		pillars: z.array(z.object({ icon: z.string(), title: z.string(), description: z.string() })),
+		systemsFirst: z.object({
+			heading: z.string(),
+			paragraphs: z.array(z.string()),
+			features: z.array(BulletItemSchema.extend({ icon: z.string() }))
+		})
+	})
+	.parse({
+		eyebrow: 'My Approach',
+		heading: 'One partner, end-to-end',
+		subheading:
+			'Working with multiple agencies creates complexity and misalignment. I provide a unified approach ensuring your online storefront, physical retail, and backend systems work seamlessly together.',
+		pillars: [
+			{
+				icon: 'lightbulb',
+				title: 'Migration & System Integration',
+				description:
+					'Seamless platform migrations and integrations that maximize efficiency and leverage the latest digital platforms.'
+			},
+			{
+				icon: 'database',
+				title: 'Data, API & ERP Systems',
+				description: 'Integration of data systems, APIs, and ERP solutions to streamline operations and enhance data flow.'
+			},
+			{
+				icon: 'code',
+				title: 'Development & Implementation',
+				description:
+					'Full-stack development and implementation of digital commerce solutions, ensuring robust performance and scalability.'
+			}
+		],
+		systemsFirst: {
+			heading: 'Systems-first thinking',
+			paragraphs: [
+				"Whether you're launching a new brand, scaling DTC operations, or modernizing legacy systems, I bring the strategic vision and technical execution to build commerce solutions that grow with your business.",
+				'Every technical decision is aligned with your business goals and customer needs, ensuring comprehensive operations from day one.'
+			],
+			features: [
+				{
+					icon: 'check',
+					title: 'Strategic Foundation',
+					description: 'Comprehensive operations and systems approach ensuring long-term scalability and growth.'
+				},
+				{
+					icon: 'bolt',
+					title: 'Rapid Implementation',
+					description: "Agile development delivers results quickly without sacrificing quality or long-term viability."
+				},
+				{
+					icon: 'chart',
+					title: 'Built to Scale',
+					description: 'Architecture designed to handle growth from startup launch to enterprise-level traffic and complexity.'
+				}
+			]
+		}
+	});
+
+// ─── Technical capabilities ───────────────────────────────────────────────────
+
+export const servicesTech = z
+	.object({
+		eyebrow: z.string(),
+		heading: z.string(),
+		subheading: z.string(),
+		categories: z.array(TechCategorySchema)
+	})
+	.parse({
+		eyebrow: 'Technical Capabilities',
+		heading: 'Full-stack expertise',
+		subheading: 'Comprehensive technical skills across platforms, frameworks, and tools for modern digital commerce.',
+		categories: [
+			{
+				icon: 'shop',
+				title: 'eCommerce Platforms',
+				tags: ['Shopify', 'Shopify Plus', 'Magento', 'Shopify Headless']
+			},
+			{
+				icon: 'people',
+				title: 'Customer Experience',
+				tags: ['UX Journey', 'Customer Profiling', 'Klaviyo', 'Re-engagement']
+			},
+			{
+				icon: 'link',
+				title: 'ERP & Integrations',
+				tags: ['NetSuite', 'Alumio', 'REST APIs', 'Activepieces', 'n8n']
+			},
+			{
+				icon: 'code',
+				title: 'Front-End Development',
+				tags: ['Bun JS', 'SvelteKit', 'Next.js', 'Liquid', 'Tailwind CSS']
+			},
+			{
+				icon: 'pen',
+				title: 'Design & Research',
+				tags: ['Figma', 'Adobe XD', 'Photoshop', 'Hotjar', 'Maze']
+			},
+			{
+				icon: 'chart',
+				title: 'Marketing & Analytics',
+				tags: ['Google Analytics 4', 'GTM', 'Meta Ads', 'Google Ads', 'Looker Studio']
+			}
+		]
+	});
+
+// ─── Process ──────────────────────────────────────────────────────────────────
+
+export const servicesProcess = z
+	.object({
+		eyebrow: z.string(),
+		heading: z.string(),
+		steps: z.array(ProcessStepSchema)
+	})
+	.parse({
+		eyebrow: 'My Process',
+		heading: 'How I Work',
+		steps: [
+			{
+				number: '01',
+				title: 'Discovery & Strategy',
+				description:
+					'Understand your business goals, technical requirements, and competitive landscape to develop a clear roadmap.'
+			},
+			{
+				number: '02',
+				title: 'Design & Planning',
+				description:
+					'Create user-centered designs, technical specifications, and project timelines with clear success metrics.'
+			},
+			{
+				number: '03',
+				title: 'Development & Launch',
+				description: 'Build, test, and deploy with agile methodology—delivering working solutions in iterative sprints.'
+			},
+			{
+				number: '04',
+				title: 'Optimization & Growth',
+				description: 'Monitor performance, gather insights, and continuously improve conversion rates and user experience.'
+			}
+		]
+	});
+
+// ─── Engagement options ───────────────────────────────────────────────────────
+
+export const servicesEngagement = z
+	.object({
+		eyebrow: z.string(),
+		heading: z.string(),
+		subheading: z.string(),
+		options: z.array(EngagementOptionSchema)
+	})
+	.parse({
+		eyebrow: 'Work With Me',
+		heading: 'Engagement Options',
+		subheading: 'Flexible working arrangements to match your project needs and organizational structure.',
+		options: [
+			{
+				emoji: '💼',
+				title: 'Full-Time',
+				description:
+					'Join your team as eCommerce Manager, Director of Digital Product, or VP of eCommerce for long-term impact.',
+				callout: 'Strategic leadership'
+			},
+			{
+				emoji: '🚀',
+				title: 'Project-Based',
+				description:
+					'3-6 month engagements for platform migrations, redesigns, or specific development initiatives.',
+				callout: 'Defined deliverables'
+			},
+			{
+				emoji: '💡',
+				title: 'Advisory',
+				description:
+					'Strategic guidance and ongoing consultation for brands needing expert direction and technical oversight.',
+				callout: 'Flexible support'
+			}
+		]
+	});
+
+// ─── CTA ──────────────────────────────────────────────────────────────────────
+
+export const servicesCta = z
+	.object({
+		heading: z.string(),
+		subheading: z.string(),
+		primaryCta: z.object({ label: z.string(), href: z.string() }),
+		secondaryCta: z.object({ label: z.string(), href: z.string() })
+	})
+	.parse({
+		heading: "Let's discuss your project",
+		subheading:
+			"Whether you need strategic guidance, hands-on development, or a full-time team member—I'd love to learn about your goals and explore how I can help.",
+		primaryCta: { label: 'Email', href: '#email' },
+		secondaryCta: { label: 'Connect on LinkedIn', href: 'https://www.linkedin.com/in/olivergbagley/' }
+	});

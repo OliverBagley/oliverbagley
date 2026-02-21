@@ -1,3 +1,7 @@
+<script lang="ts">
+	import EmailLink from '$lib/components/EmailLink.svelte';
+</script>
+
 <svelte:head>
     <title>Terms & Conditions — Oliver Bagley</title>
     <meta name="description" content="Terms and conditions for oliverbagley.com">
@@ -109,7 +113,7 @@
         <h2>Contact Information</h2>
         <p>If you have any questions about these Terms, please contact me at:</p>
         <p>
-            Email: <a href="mailto:hello@oliverbagley.com" class="underline" style="color: var(--terracotta);">hello@oliverbagley.com</a>
+            Email: <EmailLink class="underline" style="color: var(--terracotta);" showAddress />
         </p>
 
         <h2>Acknowledgment</h2>

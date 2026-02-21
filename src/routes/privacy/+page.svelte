@@ -1,3 +1,7 @@
+<script lang="ts">
+	import EmailLink from '$lib/components/EmailLink.svelte';
+</script>
+
 <svelte:head>
     <title>Privacy Policy — Oliver Bagley</title>
     <meta name="description" content="Privacy policy for oliverbagley.com">
@@ -90,7 +94,7 @@
             <li><strong>Objection:</strong> The right to object to processing of your information</li>
             <li><strong>Portability:</strong> The right to request transfer of your information</li>
         </ul>
-        <p>To exercise these rights, please contact me at hello@oliverbagley.com.</p>
+        <p>To exercise these rights, please contact me at <EmailLink>hello@...</EmailLink>.</p>
 
         <h2>Data Security</h2>
         <p>I implement reasonable security measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction. However, no internet transmission is completely secure, and I cannot guarantee absolute security.</p>
@@ -110,7 +114,7 @@
         <h2>Contact Me</h2>
         <p>If you have questions about this Privacy Policy or how I handle your personal information, please contact me at:</p>
         <p>
-            Email: <a href="mailto:hello@oliverbagley.com" class="underline" style="color: var(--terracotta);">hello@oliverbagley.com</a>
+            Email: <EmailLink class="underline" style="color: var(--terracotta);" showAddress />
         </p>
     </div>
 </div>
