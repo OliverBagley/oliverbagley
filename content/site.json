@@ -1,0 +1,26 @@
+{
+  "nav": {
+    "links": [
+      { "label": "About", "href": "/about" },
+      { "label": "Work", "href": "/work" },
+      { "label": "Services", "href": "/services" }
+    ],
+    "cta": { "label": "Let's Talk", "href": "/#contact" }
+  },
+  "serviceNavLinks": [
+    { "label": "eCommerce Development", "href": "/services/ecommerce-development" },
+    { "label": "Integrations & Systems", "href": "/services/integrations-systems" },
+    { "label": "Consultancy", "href": "/services/consultancy" }
+  ],
+  "footer": {
+    "copyright": "© 2026 Oliver Bagley. All rights reserved.",
+    "shopifyPartnerLogo": "/media/shopify/ShopifyPlus_Secondary.png",
+    "socialLinks": [
+      { "label": "LinkedIn", "href": "https://www.linkedin.com/in/olivergbagley/", "external": true }
+    ],
+    "legalLinks": [
+      { "label": "Privacy", "href": "/privacy" },
+      { "label": "Terms", "href": "/terms" }
+    ]
+  }
+}

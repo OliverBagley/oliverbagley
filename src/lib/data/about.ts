@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { ApproachStepSchema, SkillCategorySchema, ExperienceRoleSchema } from './schemas';
+import rawData from '../../../content/about.json';
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
@@ -10,14 +11,7 @@ export const aboutHero = z
 		backgroundImage: z.string(),
 		backgroundAlt: z.string()
 	})
-	.parse({
-		heading: 'Strategy meets execution',
-		subheading:
-			'I bridge the gap between business vision and technical reality, building digital commerce experiences that deliver measurable results.',
-		backgroundImage:
-			'https://images.unsplash.com/photo-1433838552652-f9a46b332c40?q=80&w=2070&auto=format&fit=crop',
-		backgroundAlt: 'Mountain Sunset landscape with Hot air balloons'
-	});
+	.parse(rawData.hero);
 
 // ─── Story ────────────────────────────────────────────────────────────────────
 
@@ -27,15 +21,7 @@ export const aboutStory = z
 		image: z.object({ src: z.string(), alt: z.string() }),
 		paragraphs: z.array(z.string())
 	})
-	.parse({
-		eyebrow: 'My Story',
-		image: { src: '/media/images/images/oliver.jpg', alt: 'Oliver Bagley' },
-		paragraphs: [
-			'I started my career at the intersection of design and technology, quickly realizing that the most successful digital products come from understanding both the creative vision and the technical constraints.',
-			"Over the past 8+ years, I've led digital commerce initiatives for automotive brands like Ford, healthcare companies like DLL Group, and direct-to-consumer startups. Currently, I'm the eCommerce Manager at Frog Bikes, where I've built our entire DTC platform from the ground up.",
-			"What sets me apart is my ability to move seamlessly between strategic planning and hands-on execution. I don't just design solutions—I build them. From Shopify development to conversion optimization, brand strategy to data analytics, I work across the full stack to deliver results."
-		]
-	});
+	.parse(rawData.story);
 
 // ─── Experience ───────────────────────────────────────────────────────────────
 
@@ -44,30 +30,7 @@ export const aboutExperience = z
 		current: ExperienceRoleSchema,
 		previous: ExperienceRoleSchema
 	})
-	.parse({
-		current: {
-			period: 'Current',
-			title: 'eCommerce Manager',
-			company: 'Frog Bikes',
-			bullets: [
-				'Built DTC eCommerce platform from scratch',
-				'Increased online revenue by 180% year-over-year',
-				'Led Shopify Plus migration and custom development',
-				'Implemented data-driven conversion optimization'
-			]
-		},
-		previous: {
-			period: 'Previous',
-			title: 'Digital Product Lead',
-			company: 'Various Agencies & Clients',
-			bullets: [
-				'Led digital transformation for Ford dealerships',
-				'Designed and built custom web applications',
-				'Managed cross-functional product teams',
-				'Delivered £10M+ in client revenue growth'
-			]
-		}
-	});
+	.parse(rawData.experience);
 
 // ─── Approach ─────────────────────────────────────────────────────────────────
 
@@ -76,35 +39,7 @@ export const aboutApproach = z
 		heading: z.string(),
 		steps: z.array(ApproachStepSchema)
 	})
-	.parse({
-		heading: 'My Approach',
-		steps: [
-			{
-				number: '01',
-				title: 'Strategy First',
-				description:
-					"Every project starts with understanding the business goals, user needs, and technical constraints. I don't believe in cookie-cutter solutions—each challenge requires a tailored approach."
-			},
-			{
-				number: '02',
-				title: 'User-Centered Design',
-				description:
-					"Beautiful interfaces mean nothing if users can't accomplish their goals. I prioritize usability, accessibility, and conversion optimization in every design decision."
-			},
-			{
-				number: '03',
-				title: 'Hands-On Execution',
-				description:
-					"I don't just create documentation and hand it off. I roll up my sleeves and build, whether that's writing code, setting up analytics, or optimizing conversion funnels."
-			},
-			{
-				number: '04',
-				title: 'Data-Driven Iteration',
-				description:
-					'Launch is just the beginning. I use analytics, user feedback, and A/B testing to continuously improve performance and drive measurable business results.'
-			}
-		]
-	});
+	.parse(rawData.approach);
 
 // ─── Skills ───────────────────────────────────────────────────────────────────
 
@@ -115,51 +50,7 @@ export const aboutSkills = z
 		toolsHeading: z.string(),
 		tools: z.array(z.string())
 	})
-	.parse({
-		heading: 'Core Capabilities',
-		categories: [
-			{
-				title: 'Strategy & Leadership',
-				color: 'terracotta',
-				items: [
-					'Digital commerce strategy',
-					'Product roadmapping',
-					'Team leadership',
-					'Stakeholder management',
-					'Budget planning'
-				]
-			},
-			{
-				title: 'Design & Research',
-				color: 'amber',
-				items: ['UX/UI design', 'User research', 'Brand development', 'Prototyping', 'Design systems']
-			},
-			{
-				title: 'Development & Tech',
-				color: 'terracotta',
-				items: [
-					'Shopify/Shopify Plus',
-					'HTML/CSS/JavaScript',
-					'API integrations',
-					'Google Analytics & GTM',
-					'SEO optimization'
-				]
-			}
-		],
-		toolsHeading: 'Tools & Platforms',
-		tools: [
-			'Shopify Plus',
-			'Figma',
-			'Google Analytics',
-			'Klaviyo',
-			'Git/GitHub',
-			'Hotjar',
-			'Meta Ads',
-			'Google Ads',
-			'Asana',
-			'Slack'
-		]
-	});
+	.parse(rawData.skills);
 
 // ─── CTA ──────────────────────────────────────────────────────────────────────
 
@@ -170,9 +61,4 @@ export const aboutCta = z
 		primaryCta: z.object({ label: z.string(), href: z.string() }),
 		secondaryCta: z.object({ label: z.string(), href: z.string() })
 	})
-	.parse({
-		heading: "Let's work together",
-		subheading: "I'm currently open to full-time opportunities and select consultancy projects.",
-		primaryCta: { label: 'Get in Touch', href: '#email' },
-		secondaryCta: { label: 'View Services', href: '/services' }
-	});
+	.parse(rawData.cta);

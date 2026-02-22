@@ -34,3 +34,6 @@ node_modules/
 # Cloudflare Functions
 .wrangler/
 functions/_worker.js
+
+# Sveltia CMS
+.sveltia-cms/
