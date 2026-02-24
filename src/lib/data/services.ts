@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ServicePillarSchema, ProcessStepSchema, EngagementOptionSchema, TechCategorySchema, BulletItemSchema } from './schemas';
+import { ServicePillarSchema, ProcessStepSchema, EngagementOptionSchema, TechCategorySchema } from './schemas';
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
@@ -11,15 +11,15 @@ export const servicesHero = z
 		backgroundAlt: z.string()
 	})
 	.parse({
-		heading: 'Complete digital commerce ecosystem',
+		heading: 'The full stack, owned end-to-end',
 		subheading:
-			'From online storefronts to in-store experiences, I architect and deliver end-to-end commerce solutions that unify your entire sales operation.',
+			'From platform architecture and ERP integration to automation and advisory — I work across the full digital commerce stack so you have one person who understands how it all connects.',
 		backgroundImage:
 			'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=2076&auto=format&fit=crop',
 		backgroundAlt: 'Mountain terrain'
 	});
 
-// ─── Core service pillars ─────────────────────────────────────────────────────
+// ─── Core service pillars (overview) ─────────────────────────────────────────
 
 export const servicesPillars = z
 	.object({
@@ -29,102 +29,183 @@ export const servicesPillars = z
 		pillars: z.array(ServicePillarSchema)
 	})
 	.parse({
-		eyebrow: 'Full-Stack Solutions',
+		eyebrow: 'What I Do',
 		heading: 'Three pillars of digital commerce',
 		subheading:
-			'Comprehensive coverage from Shopify platforms to backend systems, delivering frictionless experiences that convert browsers into buyers.',
+			'Platform, systems, and strategy — I cover the full stack so nothing falls through the gaps.',
 		pillars: [
 			{
 				icon: 'cart',
-				title: 'eCommerce Platforms',
+				title: 'Platform Architecture & Development',
 				description:
-					'Shopify to Magento expertise, delivering frictionless online shopping experiences and optimized user journeys that convert.',
+					'Adobe Commerce, Magento, and Shopify — built, maintained, and optimised for growing DTC and retail brands.',
 				bullets: [
-					'Migration, integration & disaster recovery',
-					'Payment gateway integration',
-					'Conversion rate optimization'
+					'Adobe Commerce & Magento builds',
+					'Shopify & Shopify Plus (Partner)',
+					'Migrations, performance & custom development'
 				]
 			},
 			{
 				icon: 'database',
-				title: 'Systems & Integration',
+				title: 'Systems Integration & Automation',
 				description:
-					'Backend systems, APIs, and integrations connecting your commerce stack to ERPs, CRMs, and business intelligence tools.',
+					'APIs, middleware, and automation that connect your entire commerce operation — from ERP to marketing tools.',
 				bullets: [
-					'API & systems development',
-					'ERP & CRM integration (NetSuite, Salesforce)',
-					'Data migration & automation'
+					'ERP integration (NetSuite via Alumio)',
+					'API development & third-party connectors',
+					'Workflow automation (n8n, Activepieces)'
 				]
 			},
 			{
-				icon: 'pos',
-				title: 'In-Store & POS',
+				icon: 'chart',
+				title: 'Consultancy & Advisory',
 				description:
-					'Unified retail experiences with Shopify POS, inventory sync, and omnichannel customer journeys across digital and physical touchpoints.',
-				bullets: ['Shopify POS implementation', 'Real-time inventory management', 'Omnichannel customer data']
+					'Strategic guidance for brands that need clarity on their stack, direction on what to build, or fractional technical leadership.',
+				bullets: [
+					'Tech stack audits & platform selection',
+					'Roadmap & prioritisation',
+					'Fractional technical lead'
+				]
 			}
 		]
 	});
 
-// ─── Approach ─────────────────────────────────────────────────────────────────
+// ─── Detailed service areas ───────────────────────────────────────────────────
 
-export const servicesApproach = z
+const ServiceItemSchema = z.object({
+	title: z.string(),
+	description: z.string()
+});
+
+const ServiceAreaSchema = z.object({
+	id: z.string(),
+	eyebrow: z.string(),
+	heading: z.string(),
+	subheading: z.string(),
+	items: z.array(ServiceItemSchema)
+});
+
+export const servicesDetails = z
 	.object({
-		eyebrow: z.string(),
-		heading: z.string(),
-		subheading: z.string(),
-		pillars: z.array(z.object({ icon: z.string(), title: z.string(), description: z.string() })),
-		systemsFirst: z.object({
-			heading: z.string(),
-			paragraphs: z.array(z.string()),
-			features: z.array(BulletItemSchema.extend({ icon: z.string() }))
-		})
+		platform: ServiceAreaSchema,
+		integrations: ServiceAreaSchema,
+		consultancy: ServiceAreaSchema
 	})
 	.parse({
-		eyebrow: 'My Approach',
-		heading: 'One partner, end-to-end',
-		subheading:
-			'Working with multiple agencies creates complexity and misalignment. I provide a unified approach ensuring your online storefront, physical retail, and backend systems work seamlessly together.',
-		pillars: [
-			{
-				icon: 'lightbulb',
-				title: 'Migration & System Integration',
-				description:
-					'Seamless platform migrations and integrations that maximize efficiency and leverage the latest digital platforms.'
-			},
-			{
-				icon: 'database',
-				title: 'Data, API & ERP Systems',
-				description: 'Integration of data systems, APIs, and ERP solutions to streamline operations and enhance data flow.'
-			},
-			{
-				icon: 'code',
-				title: 'Development & Implementation',
-				description:
-					'Full-stack development and implementation of digital commerce solutions, ensuring robust performance and scalability.'
-			}
-		],
-		systemsFirst: {
-			heading: 'Systems-first thinking',
-			paragraphs: [
-				"Whether you're launching a new brand, scaling DTC operations, or modernizing legacy systems, I bring the strategic vision and technical execution to build commerce solutions that grow with your business.",
-				'Every technical decision is aligned with your business goals and customer needs, ensuring comprehensive operations from day one.'
-			],
-			features: [
+		platform: {
+			id: 'platform',
+			eyebrow: 'Platform Architecture & Development',
+			heading: 'Built properly, from the ground up',
+			subheading:
+				'Most eCommerce problems are architectural, not cosmetic. Whether you need Adobe Commerce for complex B2B and DTC operations, or Shopify for fast-moving DTC brands, I work across both platforms — hands-on, no handoffs.',
+			items: [
 				{
-					icon: 'check',
-					title: 'Strategic Foundation',
-					description: 'Comprehensive operations and systems approach ensuring long-term scalability and growth.'
+					title: 'Adobe Commerce & Magento',
+					description:
+						'Custom Adobe Commerce and Magento 2 builds for mid-market and enterprise — theme development, custom modules, third-party integrations, and performance work baked in from day one.'
 				},
 				{
-					icon: 'bolt',
-					title: 'Rapid Implementation',
-					description: "Agile development delivers results quickly without sacrificing quality or long-term viability."
+					title: 'Shopify & Shopify Plus',
+					description:
+						'As a Shopify Partner, I build and optimise Shopify stores for DTC brands — theme customisation, app integrations, checkout extensions, and migrations from legacy platforms.'
 				},
 				{
-					icon: 'chart',
-					title: 'Built to Scale',
-					description: 'Architecture designed to handle growth from startup launch to enterprise-level traffic and complexity.'
+					title: 'Platform Migrations',
+					description:
+						'Moving from Magento 1, WooCommerce, or a custom platform to Adobe Commerce or Shopify — with full data migration, integration continuity, and no surprise downtime.'
+				},
+				{
+					title: 'Custom Module & App Development',
+					description:
+						'Bespoke Magento modules and Shopify apps that extend platform functionality to match your specific business logic — from custom checkout flows to complex pricing rules and B2B functionality.'
+				},
+				{
+					title: 'Performance Optimisation',
+					description:
+						'Full-stack performance work: caching configuration, database query optimisation, image pipelines, and Core Web Vitals improvements with measurable impact on conversion.'
+				},
+				{
+					title: 'Ongoing Support & Retainers',
+					description:
+						'Reliable, experienced platform support on a retainer basis — feature development, security patches, and platform evolution over time without the overhead of a full-time hire.'
+				}
+			]
+		},
+		integrations: {
+			id: 'integrations',
+			eyebrow: 'Systems Integration & Automation',
+			heading: 'Systems that actually talk to each other',
+			subheading:
+				'Most growing businesses are held back not by their storefront but by the glue — or lack of it — connecting everything behind it. I design and build integrations that eliminate manual work, reduce errors, and give your team reliable data.',
+			items: [
+				{
+					title: 'ERP Integration (NetSuite)',
+					description:
+						'Connect your eCommerce platform to NetSuite via Alumio or custom connectors — syncing orders, inventory, customers, and fulfilment data in both directions, reliably.'
+				},
+				{
+					title: 'Middleware & iPaaS (Alumio)',
+					description:
+						'Purpose-built integration flows using Alumio that translate, transform, and route data between platforms — with full logging, error handling, and monitoring built in.'
+				},
+				{
+					title: 'Workflow Automation',
+					description:
+						'Automated processes using n8n and Activepieces that handle repetitive operational tasks — notifications, data syncs, tagging, routing — without ongoing manual effort.'
+				},
+				{
+					title: 'API Development',
+					description:
+						'Custom REST APIs that bridge gaps between your platforms, expose data to third parties, or power internal dashboards and operational tooling.'
+				},
+				{
+					title: 'Marketing Tech Integration (Klaviyo)',
+					description:
+						'Deep integration of Klaviyo with your commerce platform — syncing customer data, order events, and behavioural signals to power accurate, timely lifecycle automation.'
+				},
+				{
+					title: 'Custom Applications & Tooling',
+					description:
+						'Self-hosted applications and internal tools built to solve operational problems that off-the-shelf software doesn\'t cover — from custom admin panels to automated reporting dashboards.'
+				}
+			]
+		},
+		consultancy: {
+			id: 'consultancy',
+			eyebrow: 'Consultancy & Advisory',
+			heading: 'Clarity that drives action',
+			subheading:
+				'Sometimes you don\'t need more hands — you need the right perspective. I work with founders, product teams, and agencies as a trusted advisor to unblock decisions, define priorities, and make sure investment goes in the right direction.',
+			items: [
+				{
+					title: 'Tech Stack Audits',
+					description:
+						'A thorough review of your platform, integrations, and data flows — identifying what\'s working, what\'s fragile, and what to fix first. Delivered as a prioritised action plan.'
+				},
+				{
+					title: 'Platform Selection',
+					description:
+						'Impartial advice on whether Adobe Commerce, Magento, Shopify Plus, or a composable approach is the right fit — based on your business model, team, and growth trajectory, not what\'s trending.'
+				},
+				{
+					title: 'Roadmap & Prioritisation',
+					description:
+						'Cut through backlog noise. I help you identify what to build next and in what order — based on real business impact, not whichever problem is shouting loudest.'
+				},
+				{
+					title: 'Fractional Technical Lead',
+					description:
+						'Part-time strategic and technical leadership for growing brands that need senior guidance without a full-time hire — available for calls, code reviews, and async support.'
+				},
+				{
+					title: 'Agency & Dev Team Review',
+					description:
+						'Second-opinion reviews of agency proposals, scoping documents, or existing work — so you know what you\'re actually getting before you commit budget.'
+				},
+				{
+					title: 'Team Coaching',
+					description:
+						'Structured mentorship and knowledge transfer to help your in-house team get up to speed on Adobe Commerce, Shopify, integration patterns, or eCommerce operations.'
 				}
 			]
 		}
@@ -140,39 +221,39 @@ export const servicesTech = z
 		categories: z.array(TechCategorySchema)
 	})
 	.parse({
-		eyebrow: 'Technical Capabilities',
-		heading: 'Full-stack expertise',
-		subheading: 'Comprehensive technical skills across platforms, frameworks, and tools for modern digital commerce.',
+		eyebrow: 'Tech Stack',
+		heading: 'Tools I work with',
+		subheading: 'A snapshot of the platforms, frameworks, and tools I use regularly across client and in-house work.',
 		categories: [
 			{
 				icon: 'shop',
 				title: 'eCommerce Platforms',
-				tags: ['Shopify', 'Shopify Plus', 'Magento', 'Shopify Headless']
-			},
-			{
-				icon: 'people',
-				title: 'Customer Experience',
-				tags: ['UX Journey', 'Customer Profiling', 'Klaviyo', 'Re-engagement']
+				tags: ['Adobe Commerce', 'Magento 2', 'Shopify', 'Shopify Plus', 'WooCommerce']
 			},
 			{
 				icon: 'link',
-				title: 'ERP & Integrations',
-				tags: ['NetSuite', 'Alumio', 'REST APIs', 'Activepieces', 'n8n']
+				title: 'Integration & Middleware',
+				tags: ['Alumio', 'REST APIs', 'GraphQL', 'Webhooks', 'n8n', 'Activepieces']
+			},
+			{
+				icon: 'database',
+				title: 'ERP & Operations',
+				tags: ['NetSuite', 'Order management', 'Inventory sync', 'Data pipelines']
+			},
+			{
+				icon: 'people',
+				title: 'Marketing Tech',
+				tags: ['Klaviyo', 'GA4', 'GTM', 'Looker Studio', 'Meta Ads', 'Google Ads']
 			},
 			{
 				icon: 'code',
-				title: 'Front-End Development',
-				tags: ['Bun JS', 'SvelteKit', 'Next.js', 'Liquid', 'Tailwind CSS']
-			},
-			{
-				icon: 'pen',
-				title: 'Design & Research',
-				tags: ['Figma', 'Adobe XD', 'Photoshop', 'Hotjar', 'Maze']
+				title: 'Development',
+				tags: ['PHP', 'TypeScript', 'SvelteKit', 'Next.js', 'Tailwind CSS', 'Hyvä']
 			},
 			{
 				icon: 'chart',
-				title: 'Marketing & Analytics',
-				tags: ['Google Analytics 4', 'GTM', 'Meta Ads', 'Google Ads', 'Looker Studio']
+				title: 'Tooling & Infrastructure',
+				tags: ['Git', 'Linux / self-hosted', 'Docker', 'Cloudflare', 'Figma', 'MySQL']
 			}
 		]
 	});
@@ -186,30 +267,30 @@ export const servicesProcess = z
 		steps: z.array(ProcessStepSchema)
 	})
 	.parse({
-		eyebrow: 'My Process',
-		heading: 'How I Work',
+		eyebrow: 'Working Together',
+		heading: 'What to expect',
 		steps: [
 			{
 				number: '01',
-				title: 'Discovery & Strategy',
+				title: 'Discovery call',
 				description:
-					'Understand your business goals, technical requirements, and competitive landscape to develop a clear roadmap.'
+					'We talk through your situation, goals, and current stack. I ask a lot of questions — the right ones upfront saves everyone time.'
 			},
 			{
 				number: '02',
-				title: 'Design & Planning',
+				title: 'Scoping & proposal',
 				description:
-					'Create user-centered designs, technical specifications, and project timelines with clear success metrics.'
+					'I map out the work, dependencies, and risks honestly. You get a clear scope of what\'s included, what isn\'t, and why.'
 			},
 			{
 				number: '03',
-				title: 'Development & Launch',
-				description: 'Build, test, and deploy with agile methodology—delivering working solutions in iterative sprints.'
+				title: 'Build & communicate',
+				description: 'Regular check-ins, no radio silence. I share progress as it happens and flag anything unexpected early.'
 			},
 			{
 				number: '04',
-				title: 'Optimization & Growth',
-				description: 'Monitor performance, gather insights, and continuously improve conversion rates and user experience.'
+				title: 'Handover & support',
+				description: 'I document what\'s been built and how to maintain it. Ongoing support available for clients who need it.'
 			}
 		]
 	});
@@ -225,28 +306,28 @@ export const servicesEngagement = z
 	})
 	.parse({
 		eyebrow: 'Work With Me',
-		heading: 'Engagement Options',
-		subheading: 'Flexible working arrangements to match your project needs and organizational structure.',
+		heading: 'Flexible engagements',
+		subheading: 'No bloated retainers, no unnecessary overhead — I work in a way that fits your stage and budget.',
 		options: [
 			{
 				emoji: '💼',
 				title: 'Full-Time',
 				description:
-					'Join your team as eCommerce Manager, Director of Digital Product, or VP of eCommerce for long-term impact.',
+					'Join your team as Digital Commerce Systems Lead, Head of eCommerce, or Director of Digital — owning the full stack for long-term strategic impact.',
 				callout: 'Strategic leadership'
 			},
 			{
 				emoji: '🚀',
 				title: 'Project-Based',
 				description:
-					'3-6 month engagements for platform migrations, redesigns, or specific development initiatives.',
+					'Fixed-scope engagements for platform migrations, integrations, or specific development initiatives — with clear deliverables and a defined timeline.',
 				callout: 'Defined deliverables'
 			},
 			{
 				emoji: '💡',
 				title: 'Advisory',
 				description:
-					'Strategic guidance and ongoing consultation for brands needing expert direction and technical oversight.',
+					'Ongoing guidance and fractional technical leadership for brands that need senior expertise without a full-time commitment.',
 				callout: 'Flexible support'
 			}
 		]
@@ -264,7 +345,7 @@ export const servicesCta = z
 	.parse({
 		heading: "Let's discuss your project",
 		subheading:
-			"Whether you need strategic guidance, hands-on development, or a full-time team member—I'd love to learn about your goals and explore how I can help.",
-		primaryCta: { label: 'Email', href: '#email' },
+			"Tell me where you're at and what's not working. I'll give you an honest view of what's possible and what it would take.",
+		primaryCta: { label: 'Get in Touch', href: '#email' },
 		secondaryCta: { label: 'Connect on LinkedIn', href: 'https://www.linkedin.com/in/olivergbagley/' }
 	});

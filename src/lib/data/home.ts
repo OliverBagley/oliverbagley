@@ -14,16 +14,16 @@ const HeroSchema = z.object({
 });
 
 export const homeHero = HeroSchema.parse({
-	eyebrow: 'Digital Operations & eCommerce Systems Expert',
-	heading: { text: 'Building digital experiences that ', highlight: 'drive growth' },
+	eyebrow: 'Digital Commerce Systems Lead',
+	heading: { text: 'I build the systems that make digital commerce ', highlight: 'actually work' },
 	tagline:
-		'I architect eCommerce platforms, design seamless user experiences, and lead digital product teams from strategy through execution. Currently scaling DTC operations at',
-	currentRole: { name: 'Frog Bikes', href: 'https://www.frogbikes.com' },
+		'I architect and maintain full digital commerce stacks — from platform builds and ERP integrations to automation, custom tooling, and everything in between. Most recently at',
+	currentRole: { name: 'Frog Bikes', href: '' },
 	primaryCta: { label: 'View Projects', href: '#work' },
 	secondaryCta: { label: 'LinkedIn →', href: 'https://www.linkedin.com/in/olivergbagley/' },
 	stats: [
 		{ value: '8+', label: 'Years Experience', color: 'terracotta' },
-		{ value: '£10M+', label: 'Revenue Generated', color: 'amber' }
+		{ value: '£10M+', label: 'Revenue Supported', color: 'amber' }
 	]
 });
 
@@ -42,62 +42,43 @@ const SolutionsSchema = z.object({
 });
 
 export const homeSolutions = SolutionsSchema.parse({
-	eyebrow: 'Full-Stack Solutions',
-	heading: 'Complete digital commerce ecosystem',
+	eyebrow: 'What I Do',
+	heading: 'The full digital commerce stack, owned',
 	subheading:
-		'From online storefronts to in-store experiences, I architect and deliver end-to-end commerce solutions that unify your entire sales operation.',
+		'I work across the entire commerce engine — from the storefront through to ERP, automation, and custom tooling — so brands have one person who understands how it all fits together.',
 	pillars: [
 		{
 			icon: 'cart',
-			title: 'eCommerce Platforms & Presence',
+			title: 'Platform Architecture & Development',
 			description:
-				'Comprehensive coverage from Shopify to Magento, delivering frictionless online shopping experiences, and optimized user journeys that convert browsers into buyers.',
+				'Adobe Commerce, Magento, and modern headless approaches — built, maintained, and evolved for growing DTC and retail brands.',
 			bullets: [
-				'Migration, Integration and disaster recovery',
-				'Payment gateway integration',
-				'Conversion rate optimization'
+				'Platform build, migration & disaster recovery',
+				'Theme development & performance optimisation',
+				'Conversion rate optimisation'
 			]
 		},
 		{
 			icon: 'database',
-			title: 'Systems & Integration',
+			title: 'Systems Integration & Automation',
 			description:
-				'Backend systems, APIs, and third-party integrations that connect your commerce stack to ERPs, CRMs, and business intelligence tools.',
-			bullets: ['API & systems development', 'ERP & CRM integration expertise', 'Data migration & automation']
+				'APIs, middleware, and automation that connect your entire commerce operation — from ERP and CRM to marketing tools and custom data pipelines.',
+			bullets: ['ERP integration (NetSuite via Alumio)', 'API development & third-party connectors', 'Workflow automation (n8n, Activepieces)']
 		},
 		{
-			icon: 'pos',
-			title: 'In-Store & POS',
+			icon: 'chart',
+			title: 'Marketing Tech & Commerce Operations',
 			description:
-				'Unified retail experiences with Shopify POS, inventory sync, and omnichannel customer journeys across digital and physical touchpoints.',
-			bullets: ['Shopify POS implementation', 'Real-time inventory management', 'Omnichannel customer data']
+				'Klaviyo lifecycle automation, analytics, and the operational glue that keeps a DTC business running smoothly at scale.',
+			bullets: ['Email & lifecycle automation (Klaviyo)', 'GA4, GTM & Looker Studio reporting', 'Commerce operations & process improvement']
 		}
 	],
 	unified: {
-		heading: 'One partner, end-to-end',
+		heading: 'One person, end-to-end',
 		paragraphs: [
-			"Working with multiple agencies for web, mobile, and in-store creates complexity and misalignment. I provide a unified approach to digital commerce, ensuring your online storefront, physical retail experiences, and backend systems work together seamlessly.",
-			"Whether you're launching a new brand, scaling DTC operations, or modernizing legacy systems, I bring the strategic vision and technical execution to build commerce solutions that grow with your business."
+			"Most commerce problems don't live in one system — they live in the gaps between them. I understand the whole stack: the platform, the integrations, the data flows, and the business context behind them. Whether you're re-platforming, scaling operations, or untangling a messy integration, I can diagnose problems faster and build solutions that actually hold together."
 		],
-		features: [
-			{
-				icon: 'check',
-				title: 'Systems-First Approach',
-				description:
-					'Comprehensive operations and system based approach ensure every technical decision aligned with your business goals and customer needs.'
-			},
-			{
-				icon: 'bolt',
-				title: 'Rapid Development & Implementation',
-				description: 'Agile development process that delivers results quickly without sacrificing quality.'
-			},
-			{
-				icon: 'chart',
-				title: 'Scale with pace',
-				description:
-					'Comprehensive development built for business that want to scale quickly, built to handle growth, from startup launch to enterprise-level traffic and complexity.'
-			}
-		]
+		features: []
 	}
 });
 
@@ -112,14 +93,14 @@ export const homePlatforms = z
 		logos: z.array(LogoSchema)
 	})
 	.parse({
-		eyebrow: 'Platform Expertise',
-		heading: 'Trusted eCommerce Platforms',
+		eyebrow: 'Tech Stack',
+		heading: 'Platforms & tools I work with',
 		logos: [
-			{ name: 'Shopify', src: '/media/logos/shopify.avif' },
 			{ name: 'Magento', src: '/media/logos/magento.avif' },
-			{ name: 'Klaviyo', src: '/media/logos/klaviyo.avif' },
 			{ name: 'NetSuite', src: '/media/logos/netsuite.avif' },
 			{ name: 'Alumio', src: '/media/logos/alumio.avif' },
+			{ name: 'Klaviyo', src: '/media/logos/klaviyo.avif' },
+			{ name: 'Shopify', src: '/media/logos/shopify.avif' },
 			{ name: 'WooCommerce', src: '/media/logos/woocommerce.avif' },
 			{ name: 'BigCommerce', src: '/media/logos/bigcommerce.avif' }
 		]
@@ -136,11 +117,10 @@ export const homeShopify = z
 		logoSrc: z.string()
 	})
 	.parse({
-		eyebrow: 'Official Partner',
-		heading: 'Expertise you can trust',
+		eyebrow: 'Shopify Partner',
+		heading: 'Shopify & Shopify Plus',
 		paragraphs: [
-			"Shopify is the leading all-in-one commerce platform for start-ups to high-growth businesses. Powering millions of businesses worldwide, Shopify gives independent brands the tools to sell online, in person, and everywhere in between.",
-			"As a certified Shopify Partner, I act as your strategic guide to the platform. I help ambitious brands leverage Shopify's robust ecosystem to build custom, high-converting storefronts that are easy to manage and ready to scale."
+			"As a certified Shopify Partner, I've built and optimised Shopify and Shopify Plus stores across a range of DTC and retail brands — from custom theme development and checkout extensions to full platform migrations. If Shopify is the right fit for your business, I can get the most out of it."
 		],
 		cta: { label: 'Explore Shopify Services', href: '/services' },
 		logoSrc: '/media/shopify/shopify-partner-logo.svg'
@@ -158,9 +138,9 @@ export const homeContact = z
 	})
 	.parse({
 		eyebrow: 'Get In Touch',
-		heading: "Let's build something together",
+		heading: "Looking for someone to own your digital commerce stack?",
 		subheading:
-			"Whether you're looking for strategic guidance, hands-on execution, or a full-time addition to your team, I'd love to hear about your project.",
+			"Whether you need a full-time lead, a consultant for a specific project, or someone to untangle a complex integration — I'd love to hear what you're working on.",
 		primaryCta: { label: 'Email', href: '#email' },
 		secondaryCta: { label: 'Connect on LinkedIn', href: 'https://www.linkedin.com/in/olivergbagley/' }
 	});

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
-	import { aboutHero, aboutStory, aboutExperience, aboutApproach, aboutSkills, aboutCta } from '$lib/data/about';
+	import { aboutHero, aboutStory, aboutExperience, aboutSkills, aboutCta } from '$lib/data/about';
 	import EmailLink from '$lib/components/EmailLink.svelte';
 
 	let mounted = false;
@@ -45,7 +45,7 @@
 
 <svelte:head>
 	<title>About — Oliver Bagley</title>
-	<meta name="description" content="Learn about Oliver Bagley's approach to digital commerce, UX design, and product leadership.">
+	<meta name="description" content="Oliver Bagley — Digital Commerce Systems Lead. 8+ years building full commerce stacks across Adobe Commerce, NetSuite, Klaviyo, and Alumio.">
 </svelte:head>
 
 <!-- Hero Section -->
@@ -116,48 +116,23 @@
 	</div>
 </section>
 
-<!-- Approach -->
+<!-- What I work with -->
 <section class="py-20 px-6 bg-cream">
 	<div class="max-w-4xl mx-auto" use:reveal>
-		<h2 class="text-4xl heading-serif mb-12">{aboutApproach.heading}</h2>
-		<div class="space-y-12">
-			{#each aboutApproach.steps as step, i}
-				<div class="flex items-start gap-6">
-					<div class="text-4xl heading-serif" style="color: var(--{i % 2 === 0 ? 'terracotta' : 'amber'});">{step.number}</div>
-					<div>
-						<h3 class="text-2xl font-bold mb-3">{step.title}</h3>
-						<p class="text-gray-600 leading-relaxed">{step.description}</p>
+		<h2 class="text-4xl heading-serif mb-12">{aboutSkills.heading}</h2>
+		<div class="space-y-6">
+			{#each aboutSkills.categories as category}
+				<div class="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-8 pb-6 border-b border-gray-200 last:border-0 last:pb-0">
+					<div class="sm:w-44 flex-shrink-0 pt-1">
+						<span class="text-xs font-semibold uppercase tracking-widest" style="color: var(--{category.color});">{category.title}</span>
+					</div>
+					<div class="flex flex-wrap gap-2">
+						{#each category.items as item}
+							<span class="skill-tag">{item}</span>
+						{/each}
 					</div>
 				</div>
 			{/each}
-		</div>
-	</div>
-</section>
-
-<!-- Skills -->
-<section class="py-20 px-6 bg-white">
-	<div class="max-w-4xl mx-auto" use:reveal>
-		<h2 class="text-4xl heading-serif mb-12">{aboutSkills.heading}</h2>
-		<div class="grid md:grid-cols-3 gap-8">
-			{#each aboutSkills.categories as category}
-				<div>
-					<h3 class="text-xl font-bold mb-4" style="color: var(--{category.color});">{category.title}</h3>
-					<ul class="space-y-2 text-gray-600">
-						{#each category.items as item}
-							<li>• {item}</li>
-						{/each}
-					</ul>
-				</div>
-			{/each}
-		</div>
-
-		<div class="mt-12 pt-12 border-t border-gray-200">
-			<h3 class="text-4xl heading-serif mb-6">{aboutSkills.toolsHeading}</h3>
-			<div class="flex flex-wrap gap-3">
-				{#each aboutSkills.tools as tool}
-					<span class="skill-tag">{tool}</span>
-				{/each}
-			</div>
 		</div>
 	</div>
 </section>
@@ -168,10 +143,10 @@
 		<h2 class="text-5xl heading-serif text-white mb-8">{aboutCta.heading}</h2>
 		<p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">{aboutCta.subheading}</p>
 		<div class="flex flex-col sm:flex-row gap-4 justify-center">
-			<EmailLink class="cta-button bg-white text-charcoal hover:bg-cream">
+			<EmailLink class="cta-button-light">
 				<span>{aboutCta.primaryCta.label}</span>
 			</EmailLink>
-			<a href={aboutCta.secondaryCta.href} class="cta-button border-2 border-white bg-transparent text-white hover:bg-white hover:text-charcoal">
+			<a href={aboutCta.secondaryCta.href} class="cta-button-outline-light">
 				<span>{aboutCta.secondaryCta.label}</span>
 			</a>
 		</div>

@@ -17,15 +17,16 @@ export const siteNav = NavSchema.parse({
 	links: [
 		{ label: 'About', href: '/about' },
 		{ label: 'Work', href: '/work' },
-		{ label: 'Services', href: '/services' }
+		{ label: 'Services', href: '/services' },
+		{ label: 'Blog', href: '/blog' }
 	],
 	cta: { label: "Let's Talk", href: '/#contact' }
 });
 
 export const serviceNavLinks = [
-	{ label: 'eCommerce Development', href: '/services/ecommerce-development' },
-	{ label: 'Integrations & Systems', href: '/services/integrations-systems' },
-	{ label: 'Consultancy', href: '/services/consultancy' }
+	{ label: 'Platform Development', href: '/services#platform' },
+	{ label: 'Integrations & Systems', href: '/services#integrations' },
+	{ label: 'Consultancy', href: '/services#consultancy' }
 ] as const;
 
 export const siteFooter = FooterSchema.parse({

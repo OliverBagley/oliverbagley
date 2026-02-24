@@ -8,40 +8,40 @@ export const projects = z.array(ProjectSchema).parse([
 		slug: 'dll-digital-catalog',
 		title: 'DLL Group Digital Catalog',
 		description:
-			'Minimal digital catalog for healthcare vehicles, optimized for iPad exhibition displays with responsive photography.',
-		image: '/media/images/images/work_thumbs/dll_digital_catalog_thumb.jpg',
-		tags: ['Design', 'Development', 'Photography']
+			'Designed and built a responsive digital catalog for healthcare vehicle exhibitions — optimised for iPad display environments and built to replace printed materials at trade shows.',
+		image: '/media/images/work_thumbs/dll_digital_catalog_thumb.jpg',
+		tags: ['Development', 'Design', 'Photography']
 	},
 	{
 		slug: 'fordpass',
 		title: 'FordPass Transformation',
 		description:
-			'Complete reimagining of car sales and aftercare through market research and customer journey optimization.',
-		image: '/media/images/images/work_thumbs/ford_thumb_1.jpg',
-		tags: ['Research', 'UX/UI', 'Strategy']
+			'Led end-to-end research and UX strategy to reimagine how Ford dealers sell cars and manage aftercare — mapping customer journeys and identifying friction points across the full ownership lifecycle.',
+		image: '/media/images/work_thumbs/ford_thumb_1.jpg',
+		tags: ['Strategy', 'UX/UI', 'Research']
 	},
 	{
 		slug: 'fox-finance',
 		title: 'Fox Smart Finance',
 		description:
-			'End-to-end product development: brand identity, UX design, and full-stack development of finance tracking webapp.',
-		image: '/media/images/images/work_thumbs/fox_thumb.jpg',
-		tags: ['Brand', 'Product', 'Full-Stack']
+			'Full product build from zero: brand identity, UX design, and full-stack development of a finance tracking web app. Sole developer and designer from brief to live product.',
+		image: '/media/images/work_thumbs/fox_thumb.jpg',
+		tags: ['Full-Stack', 'Product', 'Brand']
 	},
 	{
 		slug: 'ankura-services',
 		title: 'Ankura Services',
 		description:
-			'Complete brand development and digital presence for marketing startup, from identity to implementation.',
-		image: '/media/images/images/work_thumbs/ankura_thumb.jpg',
-		tags: ['Brand', 'Marketing', 'Web']
+			'Built the complete digital presence for a new marketing services startup — brand identity, website, and go-to-market collateral — from initial brief through to live launch.',
+		image: '/media/images/work_thumbs/ankura_thumb.jpg',
+		tags: ['Brand', 'Web', 'Marketing']
 	},
 	{
 		slug: 'calgary-brewing',
 		title: 'Calgary Brewing Co.',
 		description:
-			'Packaging and advertising design for a craft brewing company, creating distinctive visual identity across bottles, cans, and marketing materials.',
-		image: '/media/images/images/work_thumbs/calgary_thumb.jpg',
-		tags: ['Product', 'Brand', 'Advertising']
+			'Created a distinctive visual identity and packaging system for a craft brewery — spanning bottle and can design, brand guidelines, and advertising materials.',
+		image: '/media/images/work_thumbs/calgary_thumb.jpg',
+		tags: ['Brand', 'Product', 'Advertising']
 	}
 ]);

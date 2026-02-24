@@ -12,17 +12,16 @@ export const workHero = z
 		stats: z.array(StatSchema)
 	})
 	.parse({
-		heading: 'Work that drives results',
+		heading: 'Selected work & projects',
 		subheading:
-			'From concept to launch, these projects showcase strategic thinking, technical execution, and measurable business impact across eCommerce, brand development, and digital product design.',
+			'A cross-section of real work — platform builds, systems integrations, brand development, and digital products. Each project is a problem that needed solving.',
 		backgroundImage:
 			'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop',
 		backgroundAlt: 'Mountain landscape',
 		stats: [
-			{ value: '$50M+', label: 'Revenue Generated' },
-			{ value: '100+', label: 'Projects Delivered' },
-			{ value: '35%', label: 'Avg. Conversion Lift' },
-			{ value: '10+', label: 'Years Experience' }
+			{ value: '8+', label: 'Years Experience' },
+			{ value: '£10M+', label: 'Revenue Supported' },
+			{ value: '3', label: 'Core Platforms' }
 		]
 	});
 
@@ -36,27 +35,27 @@ export const workApproach = z
 		pillars: z.array(WorkApproachPillarSchema)
 	})
 	.parse({
-		eyebrow: 'My Approach',
-		heading: 'Strategy meets execution',
+		eyebrow: 'How I work',
+		heading: 'Systems thinking, hands-on execution',
 		subheading:
-			'Every project begins with understanding your business goals, not just your design preferences. I combine strategic thinking with hands-on technical execution to deliver solutions that look great, perform brilliantly, and scale with your business.',
+			'Every engagement starts by understanding how everything connects — the business, the data, the platforms, and the gaps between them. Then I build.',
 		pillars: [
 			{
 				icon: 'lightbulb',
-				title: 'Migration & System Integration',
+				title: 'Map before building',
 				description:
-					'Seamless platform migrations and integrations that maximize efficiency and allow you to leverage the latest digital platforms.'
-			},
-			{
-				icon: 'pen',
-				title: 'Systems Data, API & ERP',
-				description: 'Integration of data systems, APIs, and ERP solutions to streamline operations and enhance data flow.'
+					'I start every project by understanding the existing systems, data flows, and constraints. Most problems aren\'t where they first appear.'
 			},
 			{
 				icon: 'code',
-				title: 'Development & Implementation',
+				title: 'Build it to last',
+				description: 'I write code and build integrations with maintainability in mind. What I ship should still make sense in two years.'
+			},
+			{
+				icon: 'chart',
+				title: 'Measure what matters',
 				description:
-					'Hands-on development and implementation of digital commerce solutions, ensuring robust performance and scalability.'
+					'Once live, I use real data to understand what\'s working. Decisions should be based on evidence, not assumptions.'
 			}
 		]
 	});
@@ -73,7 +72,7 @@ export const workProjectsSection = z
 		eyebrow: 'Featured Work',
 		heading: 'Selected projects',
 		subheading:
-			'A curated selection of work spanning eCommerce transformation, brand development, and full-stack product design.'
+			'Real problems, real solutions — spanning eCommerce platform work, systems integration, brand development, and full-stack digital products.'
 	});
 
 // ─── Capabilities ─────────────────────────────────────────────────────────────
@@ -128,9 +127,9 @@ export const workCta = z
 		secondaryCta: z.object({ label: z.string(), href: z.string() })
 	})
 	.parse({
-		heading: 'Ready to start your project?',
+		heading: 'Got a project in mind?',
 		subheading:
-			"Let's discuss how we can create something impactful together. Whether you need strategic guidance, hands-on development, or end-to-end execution.",
+			"Tell me what you're working on — whether it's a platform build, a complex integration, or an operational problem that needs untangling. I'll tell you honestly if I can help.",
 		primaryCta: { label: 'Get In Touch', href: '#email' },
-		secondaryCta: { label: 'Learn More About Me', href: '/about' }
+		secondaryCta: { label: 'View Services', href: '/services' }
 	});

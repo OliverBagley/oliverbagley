@@ -37,8 +37,8 @@
 </script>
 
 <svelte:head>
-	<title>Oliver Bagley — Digital Commerce Strategist & Product Leader</title>
-	<meta name="description" content="Digital commerce strategist specializing in eCommerce platforms, UX/UI design, and full-stack digital experiences." />
+	<title>Oliver Bagley — Digital Commerce Systems Lead</title>
+	<meta name="description" content="Digital commerce specialist with 8+ years building full commerce stacks — Adobe Commerce, Shopify, NetSuite integration, automation, and custom tooling for DTC and retail brands." />
 	<meta name="referrer" content="no-referrer" />
 </svelte:head>
 
@@ -55,13 +55,17 @@
 				</h1>
 				<p class="text-xl text-gray-600 mb-8 leading-relaxed fade-in-up" style="animation-delay: 0.4s;">
 					{homeHero.tagline}
-					<a href={homeHero.currentRole.href} target="_blank" rel="noopener noreferrer">{homeHero.currentRole.name}</a>.
+					{#if homeHero.currentRole.href}
+						<a href={homeHero.currentRole.href} target="_blank" rel="noopener noreferrer">{homeHero.currentRole.name}</a>.
+					{:else}
+						{homeHero.currentRole.name}.
+					{/if}
 				</p>
 				<div class="flex gap-4 fade-in-up" style="animation-delay: 0.55s;">
-					<a href={homeHero.primaryCta.href} class="cta-button-secondary hover:bg-charcoal hover:text-cream">
+					<a href={homeHero.primaryCta.href} class="cta-button">
 						<span>{homeHero.primaryCta.label}</span>
 					</a>
-					<a href={homeHero.secondaryCta.href} target="_blank" class="cta-button bg-transparent text-charcoal hover:bg-charcoal hover:text-cream" style="border-color: var(--charcoal);">
+					<a href={homeHero.secondaryCta.href} target="_blank" class="cta-button-outline">
 						<span>{homeHero.secondaryCta.label}</span>
 					</a>
 				</div>
@@ -73,7 +77,7 @@
 					</div>
 					<div class="relative z-10 fade-in-up" style="animation-delay: 0.45s;">
 						<div class="hero-image-container overflow-hidden shadow-2xl animate-float-medium transition-all duration-300">
-							<img src="/media/images/images/oliver.jpg" alt="Oliver Bagley" class="hero-image w-full h-auto object-cover">
+							<img src="/media/images/oliver.jpg" alt="Oliver Bagley" class="hero-image w-full h-auto object-cover">
 						</div>
 					</div>
 					<!-- Floating Stat Card -->
@@ -100,9 +104,9 @@
 <section id="work" class="py-24" style="background: var(--charcoal);">
 	<div class="max-w-7xl mx-auto px-6 md:px-12">
 		<div class="relative mb-16" use:reveal>
-			<p class="text-sm font-semibold uppercase tracking-widest mb-4" style="color: var(--terracotta);">Selected Projects</p>
-			<h2 class="text-5xl lg:text-6xl font-bold text-white mb-6" style="font-family: 'Instrument Serif', serif;">Work that drives results</h2>
-			<p class="text-xl text-gray-400 max-w-2xl">From concept to launch, these projects showcase strategic thinking, technical execution, and measurable business impact.</p>
+			<p class="text-sm font-semibold uppercase tracking-widest mb-4" style="color: var(--terracotta);">Selected Work</p>
+			<h2 class="text-5xl lg:text-6xl font-bold text-white mb-6" style="font-family: 'Instrument Serif', serif;">A cross-section of the work</h2>
+			<p class="text-xl text-gray-400 max-w-2xl">Platform builds, systems integrations, brand development, and full-stack digital products — each one a real problem that needed solving.</p>
 		</div>
 
 		<div class="projects-grid">
@@ -170,38 +174,11 @@
 		</div>
 
 		<div class="bg-white p-10 rounded-2xl shadow-sm" use:reveal={{ delay: 400 }}>
-			<div class="grid md:grid-cols-2 gap-8 items-center">
-				<div>
-					<h3 class="text-3xl font-bold mb-4 heading-serif">{homeSolutions.unified.heading}</h3>
-					{#each homeSolutions.unified.paragraphs as paragraph}
-						<p class="text-gray-600 leading-relaxed mb-4">{paragraph}</p>
-					{/each}
-				</div>
-				<div class="space-y-4">
-					{#each homeSolutions.unified.features as feature}
-						<div class="flex items-start gap-4">
-							<div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: var(--light-gray);">
-								{#if feature.icon === 'check'}
-									<svg class="w-5 h-5" style="color: var(--terracotta);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-									</svg>
-								{:else if feature.icon === 'bolt'}
-									<svg class="w-5 h-5" style="color: var(--terracotta);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-									</svg>
-								{:else if feature.icon === 'chart'}
-									<svg class="w-5 h-5" style="color: var(--terracotta);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
-									</svg>
-								{/if}
-							</div>
-							<div>
-								<h4 class="font-bold mb-1">{feature.title}</h4>
-								<p class="text-sm text-gray-600">{feature.description}</p>
-							</div>
-						</div>
-					{/each}
-				</div>
+			<div class="max-w-3xl">
+				<h3 class="text-3xl font-bold mb-4 heading-serif">{homeSolutions.unified.heading}</h3>
+				{#each homeSolutions.unified.paragraphs as paragraph}
+					<p class="text-gray-600 leading-relaxed text-lg">{paragraph}</p>
+				{/each}
 			</div>
 		</div>
 	</div>
@@ -265,8 +242,8 @@
 		<h2 class="text-5xl lg:text-6xl heading-serif text-white mb-8">{homeContact.heading}</h2>
 		<p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">{homeContact.subheading}</p>
 		<div class="flex flex-col sm:flex-row gap-4 justify-center">
-			<EmailLink class="cta-button bg-white text-charcoal hover:bg-cream" showAddress />
-			<a href={homeContact.secondaryCta.href} target="_blank" class="cta-button border-2 border-white bg-transparent text-white hover:bg-white hover:text-charcoal">
+			<EmailLink class="cta-button-light" showAddress />
+			<a href={homeContact.secondaryCta.href} target="_blank" class="cta-button-outline-light">
 				<span>{homeContact.secondaryCta.label}</span>
 			</a>
 		</div>

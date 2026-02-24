@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { projects } from '$lib/data/projects';
-	import { workHero, workApproach, workProjectsSection, workCapabilities, workCta } from '$lib/data/work';
+	import { workHero, workProjectsSection, workCta } from '$lib/data/work';
 	import EmailLink from '$lib/components/EmailLink.svelte';
 
 	function reveal(node: HTMLElement, options = { delay: 0 }) {
@@ -38,7 +38,7 @@
 
 <svelte:head>
 	<title>Work — Oliver Bagley</title>
-	<meta name="description" content="Selected projects showcasing strategic thinking, technical execution, and measurable business impact across digital commerce and product development." />
+	<meta name="description" content="Real projects from Oliver Bagley — eCommerce platform work, systems integration, brand development, and full-stack digital products." />
 	<meta name="referrer" content="no-referrer" />
 </svelte:head>
 
@@ -68,39 +68,6 @@
 				</div>
 			{/each}
 		</div>
-	</div>
-</section>
-
-<!-- Approach Section -->
-<section class="py-20 px-6 bg-cream">
-	<div class="max-w-4xl mx-auto text-center" use:reveal>
-		<p class="text-sm font-semibold uppercase tracking-widest mb-4" style="color: var(--terracotta);">{workApproach.eyebrow}</p>
-		<h2 class="text-4xl lg:text-5xl heading-serif mb-6">{workApproach.heading}</h2>
-		<p class="text-xl text-gray-600 leading-relaxed">{workApproach.subheading}</p>
-	</div>
-
-	<div class="max-w-7xl mx-auto mt-16 grid md:grid-cols-3 gap-8">
-		{#each workApproach.pillars as pillar, i}
-			<div class="text-center" use:reveal={{ delay: (i + 1) * 100 }}>
-				<div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background: linear-gradient(115deg, var(--amber) 0%, var(--terracotta) 100%);">
-					{#if pillar.icon === 'lightbulb'}
-						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-						</svg>
-					{:else if pillar.icon === 'pen'}
-						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
-						</svg>
-					{:else if pillar.icon === 'code'}
-						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-						</svg>
-					{/if}
-				</div>
-				<h3 class="text-xl font-bold mb-2">{pillar.title}</h3>
-				<p class="text-gray-600">{pillar.description}</p>
-			</div>
-		{/each}
 	</div>
 </section>
 
@@ -154,41 +121,16 @@
 	</div>
 </section>
 
-<!-- Capabilities Section -->
-<section class="py-20 px-6 bg-white">
-	<div class="max-w-7xl mx-auto">
-		<div class="text-center mb-16" use:reveal>
-			<p class="text-sm font-semibold uppercase tracking-widest mb-4" style="color: var(--terracotta);">{workCapabilities.eyebrow}</p>
-			<h2 class="text-4xl lg:text-5xl heading-serif mb-4">{workCapabilities.heading}</h2>
-			<p class="text-xl text-gray-600 max-w-3xl mx-auto">{workCapabilities.subheading}</p>
-		</div>
-
-		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-			{#each workCapabilities.categories as category, i}
-				<div class="p-6 bg-cream rounded-lg" use:reveal={{ delay: (i % 3 + 1) * 50 }}>
-					<h3 class="font-bold text-lg mb-2">{category.title}</h3>
-					<p class="text-gray-600 text-sm mb-3">{category.description}</p>
-					<div class="flex flex-wrap gap-2">
-						{#each category.tags as tag}
-							<span class="skill-tag">{tag}</span>
-						{/each}
-					</div>
-				</div>
-			{/each}
-		</div>
-	</div>
-</section>
-
 <!-- CTA Section -->
 <section class="py-24 px-6 bg-cream border-t border-gray-200">
 	<div class="max-w-4xl mx-auto text-center" use:reveal>
 		<h2 class="text-4xl lg:text-5xl heading-serif mb-6">{workCta.heading}</h2>
 		<p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">{workCta.subheading}</p>
 		<div class="flex flex-col sm:flex-row gap-4 justify-center">
-			<EmailLink class="cta-button py-3 px-8">
+			<EmailLink class="cta-button">
 				<span>{workCta.primaryCta.label}</span>
 			</EmailLink>
-			<a href={workCta.secondaryCta.href} class="cta-button border-2 border-charcoal bg-transparent text-charcoal hover:bg-charcoal hover:text-white py-3 px-8">
+			<a href={workCta.secondaryCta.href} class="cta-button-outline">
 				<span>{workCta.secondaryCta.label}</span>
 			</a>
 		</div>
