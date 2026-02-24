@@ -32,7 +32,7 @@
 	}
 </script>
 
-<nav class="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-warm-gray/10">
+<nav class="fixed top-0 left-0 right-0 z-50 bg-cream/90 nav-glass border-b border-black/5">
 	<div class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
 		<a href="/" class="text-3xl font-bold heading-serif" on:click={closeMobileMenu}>OB</a>
 
@@ -137,10 +137,10 @@
 	</div>
 {/key}
 
-<footer class="py-12 px-6 border-t border-gray-200 bg-cream">
+<footer class="py-12 px-6 border-t border-gray-200 bg-cream font-code">
 	<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
 		<div class="flex flex-col md:flex-row items-center gap-4 md:gap-6">
-			<p class="text-gray-600 text-sm">{siteFooter.copyright}</p>
+			<p class="text-gray-500">{siteFooter.copyright}</p>
 			<div class="h-4 w-px bg-gray-300 hidden md:block"></div>
 			<img
 				src={siteFooter.shopifyPartnerLogo}
@@ -150,13 +150,13 @@
 		</div>
 		<div class="flex gap-6">
 			{#each siteFooter.socialLinks as link}
-				<a href={link.href} target={link.external ? '_blank' : undefined} class="text-gray-600 hover:text-charcoal transition-colors">
+				<a href={link.href} target={link.external ? '_blank' : undefined} class="text-gray-500 hover:text-charcoal transition-colors">
 					{link.label}
 				</a>
 			{/each}
-			<EmailLink class="text-gray-600 hover:text-charcoal transition-colors">Email</EmailLink>
+			<EmailLink class="text-gray-500 hover:text-charcoal transition-colors">Email</EmailLink>
 			{#each siteFooter.legalLinks as link}
-				<a href={link.href} class="text-gray-600 hover:text-charcoal transition-colors">
+				<a href={link.href} class="text-gray-500 hover:text-charcoal transition-colors">
 					{link.label}
 				</a>
 			{/each}

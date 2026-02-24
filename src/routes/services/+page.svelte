@@ -166,7 +166,7 @@
 
 		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 			{#each servicesDetails.integrations.items as item, i}
-				<div class="bg-white/5 border border-white/10 p-6 rounded-xl hover:border-white/20 transition-colors" use:reveal={{ delay: (i % 3) * 80 }}>
+				<div class="glass-dark p-6 rounded-xl hover:bg-white/10 transition-colors" use:reveal={{ delay: (i % 3) * 80 }}>
 					<h3 class="text-xl font-bold text-white mb-3">{item.title}</h3>
 					<p class="text-gray-400 leading-relaxed text-sm">{item.description}</p>
 				</div>
@@ -226,7 +226,7 @@
 			</div>
 			<div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
 				{#each servicesEngagement.options as option, i}
-					<div class="p-8 bg-white/5 border border-white/10 rounded-xl hover:border-white/20 transition-colors">
+					<div class="glass-dark p-8 rounded-xl hover:bg-white/10 transition-colors">
 						<div class="text-4xl mb-4">{option.emoji}</div>
 						<h3 class="text-2xl font-bold text-white mb-3">{option.title}</h3>
 						<p class="text-gray-400 mb-4">{option.description}</p>

@@ -82,7 +82,7 @@
 					</div>
 					<!-- Floating Stat Card -->
 					<div class="absolute bottom-8 -left-8 z-20 hidden md:block max-w-[16rem] fade-in-up" style="animation-delay: 0.6s;">
-						<div class="bg-white p-6 shadow-xl animate-float-medium" style="border-radius: 1rem;">
+						<div class="glass-card p-6 animate-float-medium" style="border-radius: 1rem;">
 							<div class="space-y-4">
 								{#each homeHero.stats as stat, i}
 									{#if i > 0}<div class="border-t border-gray-100"></div>{/if}

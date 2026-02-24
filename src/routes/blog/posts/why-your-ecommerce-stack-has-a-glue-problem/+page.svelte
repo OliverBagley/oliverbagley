@@ -6,7 +6,8 @@
 		date: 'February 2026',
 		readTime: '6 min read',
 		category: 'Systems Integration',
-		coverImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop'
+		coverImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop',
+		caption: 'Server infrastructure and data integration layers — the invisible plumbing of modern eCommerce. Photo: Unsplash'
 	};
 </script>
 
@@ -16,36 +17,51 @@
 	<meta name="referrer" content="no-referrer" />
 </svelte:head>
 
-<!-- Hero -->
-<section class="relative pt-32 md:pt-40 pb-0 overflow-hidden" style="background: var(--charcoal);">
-	<div class="max-w-4xl mx-auto px-6 pb-12">
-		<p class="text-sm font-semibold uppercase tracking-widest mb-6" style="color: var(--terracotta);">
-			<a href="/" class="hover:opacity-80 transition-opacity">Home</a>
-			<span class="mx-2">/</span>
-			<a href="/blog" class="hover:opacity-80 transition-opacity">Blog</a>
-			<span class="mx-2">/</span>
-			<span>{post.category}</span>
+<!-- Article Header — clean editorial style -->
+<div class="pt-32 md:pt-40 pb-16 bg-cream">
+	<div class="max-w-3xl mx-auto px-6">
+		<!-- Breadcrumb -->
+		<p class="text-sm font-semibold uppercase tracking-widest mb-10" style="color: var(--terracotta);">
+			<a href="/" class="hover:opacity-70 transition-opacity">Home</a>
+			<span class="mx-2 opacity-40">/</span>
+			<a href="/blog" class="hover:opacity-70 transition-opacity">Blog</a>
+			<span class="mx-2 opacity-40">/</span>
+			<span class="opacity-60">{post.category}</span>
 		</p>
-		<div class="flex items-center gap-3 text-sm text-gray-400 mb-6">
-			<span class="font-semibold px-3 py-1 rounded-full text-xs" style="background: rgba(255,255,255,0.1); color: var(--terracotta);">{post.category}</span>
+
+		<!-- Meta row -->
+		<div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-8">
+			<span class="text-xs font-semibold px-3 py-1 rounded-full" style="background: rgba(215,122,72,0.12); color: var(--terracotta);">{post.category}</span>
+			<span class="opacity-40">·</span>
 			<span>{post.date}</span>
-			<span>·</span>
+			<span class="opacity-40">·</span>
 			<span>{post.readTime}</span>
 		</div>
-		<h1 class="text-4xl lg:text-6xl heading-serif text-white mb-6 leading-tight">{post.title}</h1>
-		<p class="text-xl text-gray-300 leading-relaxed">Most commerce problems aren't platform problems. They're integration problems — the messy, invisible layer between your storefront, your ERP, and everything in between.</p>
+
+		<!-- Title -->
+		<h1 class="text-4xl lg:text-6xl heading-serif mb-6 leading-tight">{post.title}</h1>
+
+		<!-- Lead paragraph -->
+		<p class="text-xl text-gray-600 leading-relaxed">Most commerce problems aren't platform problems. They're integration problems — the messy, invisible layer between your storefront, your ERP, and everything in between.</p>
 	</div>
-	{#if post.coverImage}
-		<div class="max-w-5xl mx-auto px-6">
-			<div class="overflow-hidden rounded-t-2xl aspect-video">
-				<img src={post.coverImage} alt={post.title} class="w-full h-full object-cover" />
-			</div>
-		</div>
-	{/if}
-</section>
+</div>
 
 <!-- Article Body -->
-<section class="py-16 px-6 bg-white">
+<section class="pt-12 pb-16 px-6 bg-white">
+	<!-- Cover image — wider than text column for visual breathing room -->
+	{#if post.coverImage}
+		<div class="max-w-4xl mx-auto mb-14">
+			<figure>
+				<div class="overflow-hidden rounded-2xl aspect-video">
+					<img src={post.coverImage} alt={post.title} class="w-full h-full object-cover" />
+				</div>
+				{#if post.caption}
+					<figcaption class="text-xs text-gray-400 mt-3 px-1 leading-relaxed">{post.caption}</figcaption>
+				{/if}
+			</figure>
+		</div>
+	{/if}
+
 	<div class="max-w-3xl mx-auto">
 		<div class="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6">
 

@@ -5,6 +5,14 @@ export type { Project } from './schemas';
 
 export const projects = z.array(ProjectSchema).parse([
 	{
+		slug: 'frog-bikes-dtc',
+		title: 'Frog Bikes — Commerce Stack',
+		description:
+			'Owned the full digital commerce operation at a specialist children\'s bike brand — spanning Shopify Plus, NetSuite ERP integration via a custom middleware layer, warehouse fulfilment, Klaviyo email, and the analytics infrastructure that tied it all together. Eight years of in-house DTC, built from the inside out.',
+		image: '/media/images/work_thumbs/frog_bikes_thumb.jpg',
+		tags: ['Shopify Plus', 'ERP Integration', 'Commerce Ops']
+	},
+	{
 		slug: 'dll-digital-catalog',
 		title: 'DLL Group Digital Catalog',
 		description:
