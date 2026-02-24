@@ -1,0 +1,513 @@
+# Sveltia CMS Configuration
+# GitHub OAuth App required: https://github.com/settings/developers
+# Set callback URL to: https://your-site.pages.dev/admin/
+# Then replace REPLACE_WITH_YOUR_GITHUB_OAUTH_APP_CLIENT_ID below
+
+backend:
+  name: github
+  repo: OliverBagley/ob_site_cf
+  branch: main
+  auth_type: pkce
+  app_id: Ov23li1PHaXV5N0xe7Mg
+
+media_folder: static/media
+public_folder: /media
+
+collections:
+  # ─── Pages ────────────────────────────────────────────────────────────────
+  - name: pages
+    label: Pages
+    files:
+      # ── Home ──
+      - name: home
+        label: Home Page
+        file: content/home.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - label: Heading
+                name: heading
+                widget: object
+                fields:
+                  - { label: Text, name: text, widget: string }
+                  - { label: Highlight, name: highlight, widget: string }
+              - { label: Tagline, name: tagline, widget: text }
+              - label: Current Role
+                name: currentRole
+                widget: object
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: URL, name: href, widget: string }
+              - label: Primary CTA
+                name: primaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: href, widget: string }
+              - label: Secondary CTA
+                name: secondaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: href, widget: string }
+              - label: Stats
+                name: stats
+                widget: list
+                fields:
+                  - { label: Value, name: value, widget: string }
+                  - { label: Label, name: label, widget: string }
+                  - label: Color
+                    name: color
+                    widget: select
+                    options: [terracotta, amber]
+
+          - label: Solutions
+            name: solutions
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subheading, name: subheading, widget: text }
+              - label: Pillars
+                name: pillars
+                widget: list
+                fields:
+                  - { label: Icon, name: icon, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+                  - { label: Bullets, name: bullets, widget: list }
+              - label: Unified Section
+                name: unified
+                widget: object
+                fields:
+                  - { label: Heading, name: heading, widget: string }
+                  - { label: Paragraphs, name: paragraphs, widget: list }
+                  - label: Features
+                    name: features
+                    widget: list
+                    fields:
+                      - { label: Icon, name: icon, widget: string }
+                      - { label: Title, name: title, widget: string }
+                      - { label: Description, name: description, widget: text }
+
+          - label: Platforms
+            name: platforms
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - label: Logos
+                name: logos
+                widget: list
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: Image, name: src, widget: image }
+
+          - label: Shopify Partner
+            name: shopify
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Paragraphs, name: paragraphs, widget: list }
+              - label: CTA
+                name: cta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: href, widget: string }
+              - { label: Logo, name: logoSrc, widget: image }
+
+          - label: Contact
+            name: contact
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subheading, name: subheading, widget: text }
+              - label: Primary CTA
+                name: primaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: href, widget: string }
+              - label: Secondary CTA
+                name: secondaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: href, widget: string }
+
+      # ── About ──
+      - name: about
+        label: About Page
+        file: content/about.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subheading, name: subheading, widget: text }
+              - { label: Background Image URL, name: backgroundImage, widget: string }
+              - { label: Background Alt Text, name: backgroundAlt, widget: string }
+
+          - label: Story
+            name: story
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - label: Image
+                name: image
+                widget: object
+                fields:
+                  - { label: Source, name: src, widget: image }
+                  - { label: Alt Text, name: alt, widget: string }
+              - { label: Paragraphs, name: paragraphs, widget: list }
+
+          - label: Experience
+            name: experience
+            widget: object
+            fields:
+              - label: Current Role
+                name: current
+                widget: object
+                fields:
+                  - { label: Period, name: period, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Company, name: company, widget: string }
+                  - { label: Bullets, name: bullets, widget: list }
+              - label: Previous Role
+                name: previous
+                widget: object
+                fields:
+                  - { label: Period, name: period, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Company, name: company, widget: string }
+                  - { label: Bullets, name: bullets, widget: list }
+
+          - label: Approach
+            name: approach
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - label: Steps
+                name: steps
+                widget: list
+                fields:
+                  - { label: Number, name: number, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+
+          - label: Skills
+            name: skills
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - label: Categories
+                name: categories
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - label: Color
+                    name: color
+                    widget: select
+                    options: [terracotta, amber]
+                  - { label: Items, name: items, widget: list }
+              - { label: Tools Heading, name: toolsHeading, widget: string }
+              - { label: Tools, name: tools, widget: list }
+
+          - label: CTA
+            name: cta
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subheading, name: subheading, widget: text }
+              - label: Primary CTA
+                name: primaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: href, widget: string }
+              - label: Secondary CTA
+                name: secondaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: href, widget: string }
+
+      # ── Services ──
+      - name: services
+        label: Services Page
+        file: content/services.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subheading, name: subheading, widget: text }
+              - { label: Background Image URL, name: backgroundImage, widget: string }
+              - { label: Background Alt Text, name: backgroundAlt, widget: string }
+
+          - label: Pillars
+            name: pillars
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subheading, name: subheading, widget: text }
+              - label: Pillars
+                name: pillars
+                widget: list
+                fields:
+                  - { label: Icon, name: icon, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+                  - { label: Bullets, name: bullets, widget: list }
+
+          - label: Approach
+            name: approach
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subheading, name: subheading, widget: text }
+              - label: Pillars
+                name: pillars
+                widget: list
+                fields:
+                  - { label: Icon, name: icon, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+              - label: Systems First
+                name: systemsFirst
+                widget: object
+                fields:
+                  - { label: Heading, name: heading, widget: string }
+                  - { label: Paragraphs, name: paragraphs, widget: list }
+                  - label: Features
+                    name: features
+                    widget: list
+                    fields:
+                      - { label: Icon, name: icon, widget: string }
+                      - { label: Title, name: title, widget: string }
+                      - { label: Description, name: description, widget: text }
+
+          - label: Tech Capabilities
+            name: tech
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subheading, name: subheading, widget: text }
+              - label: Categories
+                name: categories
+                widget: list
+                fields:
+                  - { label: Icon, name: icon, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Tags, name: tags, widget: list }
+
+          - label: Process
+            name: process
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - label: Steps
+                name: steps
+                widget: list
+                fields:
+                  - { label: Number, name: number, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+
+          - label: Engagement Options
+            name: engagement
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subheading, name: subheading, widget: text }
+              - label: Options
+                name: options
+                widget: list
+                fields:
+                  - { label: Emoji, name: emoji, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+                  - { label: Callout, name: callout, widget: string }
+
+          - label: CTA
+            name: cta
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subheading, name: subheading, widget: text }
+              - label: Primary CTA
+                name: primaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: href, widget: string }
+              - label: Secondary CTA
+                name: secondaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: href, widget: string }
+
+      # ── Work ──
+      - name: work
+        label: Work Page
+        file: content/work.json
+        format: json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subheading, name: subheading, widget: text }
+              - { label: Background Image URL, name: backgroundImage, widget: string }
+              - { label: Background Alt Text, name: backgroundAlt, widget: string }
+              - label: Stats
+                name: stats
+                widget: list
+                fields:
+                  - { label: Value, name: value, widget: string }
+                  - { label: Label, name: label, widget: string }
+
+          - label: Approach
+            name: approach
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subheading, name: subheading, widget: text }
+              - label: Pillars
+                name: pillars
+                widget: list
+                fields:
+                  - { label: Icon, name: icon, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+
+          - label: Projects Section
+            name: projectsSection
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subheading, name: subheading, widget: text }
+
+          - label: Capabilities
+            name: capabilities
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subheading, name: subheading, widget: text }
+              - label: Categories
+                name: categories
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+                  - { label: Tags, name: tags, widget: list }
+
+          - label: CTA
+            name: cta
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subheading, name: subheading, widget: text }
+              - label: Primary CTA
+                name: primaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: href, widget: string }
+              - label: Secondary CTA
+                name: secondaryCta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: href, widget: string }
+
+  # ─── Data ─────────────────────────────────────────────────────────────────
+  - name: data
+    label: Data
+    files:
+      # ── Projects ──
+      - name: projects
+        label: Projects
+        file: content/projects.json
+        format: json
+        fields:
+          - label: Projects
+            name: projects
+            widget: list
+            fields:
+              - { label: Slug, name: slug, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Image, name: image, widget: image }
+              - { label: Tags, name: tags, widget: list }
+
+      # ── Site Settings ──
+      - name: site
+        label: Site Settings
+        file: content/site.json
+        format: json
+        fields:
+          - label: Navigation
+            name: nav
+            widget: object
+            fields:
+              - label: Links
+                name: links
+                widget: list
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: href, widget: string }
+              - label: CTA
+                name: cta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: href, widget: string }
+
+          - label: Service Nav Links
+            name: serviceNavLinks
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: URL, name: href, widget: string }
+
+          - label: Footer
+            name: footer
+            widget: object
+            fields:
+              - { label: Copyright, name: copyright, widget: string }
+              - { label: Shopify Partner Logo, name: shopifyPartnerLogo, widget: image }
+              - label: Social Links
+                name: socialLinks
+                widget: list
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: href, widget: string }
+                  - { label: External, name: external, widget: boolean }
+              - label: Legal Links
+                name: legalLinks
+                widget: list
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: href, widget: string }
