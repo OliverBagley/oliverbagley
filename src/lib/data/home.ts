@@ -14,8 +14,8 @@ const HeroSchema = z.object({
 });
 
 export const homeHero = HeroSchema.parse({
-	eyebrow: 'Digital Commerce Systems Lead',
-	heading: { text: 'Building systems that make digital commerce ', highlight: 'actually work' },
+	eyebrow: 'Digital Operations & eCommerce Systems Expert',
+	heading: { text: 'Building digital experiences that ', highlight: 'drive growth' },
 	tagline:
 		'I architect and maintain full digital commerce stacks — from platform builds and ERP integrations to automation, custom tooling, and everything in between. Most recently at',
 	currentRole: { name: 'Frog Bikes', href: '' },
