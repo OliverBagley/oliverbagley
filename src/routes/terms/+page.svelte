@@ -110,12 +110,6 @@
         <h2>Entire Agreement</h2>
         <p>These Terms constitute the entire agreement between you and Oliver Bagley regarding the use of the Site and supersede all prior agreements and understandings.</p>
 
-        <h2>Contact Information</h2>
-        <p>If you have any questions about these Terms, please contact me at:</p>
-        <p>
-            Email: <EmailLink class="underline" style="color: var(--terracotta);" showAddress />
-        </p>
-
         <h2>Acknowledgment</h2>
         <p>By using the Site, you acknowledge that you have read these Terms and agree to be bound by them.</p>
     </div>

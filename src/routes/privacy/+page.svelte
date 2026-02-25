@@ -110,11 +110,5 @@
 
         <h2>Changes to This Privacy Policy</h2>
         <p>I may update this Privacy Policy from time to time. The updated version will be indicated by an updated "Last updated" date. I encourage you to review this Privacy Policy periodically for any changes.</p>
-
-        <h2>Contact Me</h2>
-        <p>If you have questions about this Privacy Policy or how I handle your personal information, please contact me at:</p>
-        <p>
-            Email: <EmailLink class="underline" style="color: var(--terracotta);" showAddress />
-        </p>
     </div>
 </div>
