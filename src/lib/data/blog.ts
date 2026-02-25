@@ -41,6 +41,6 @@ export const posts: Post[] = [
 		excerpt:
 			"Most commerce problems aren't platform problems. They're integration problems — the messy, invisible layer between your storefront, your ERP, and everything in between. Here's how to think about it.",
 		coverImage:
-			'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop'
+			'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1034&auto=format&fit=crop'
 	})
 ];

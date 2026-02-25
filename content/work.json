@@ -53,7 +53,7 @@
   "cta": {
     "heading": "Ready to start your project?",
     "subheading": "Let's discuss how we can create something impactful together. Whether you need strategic guidance, hands-on development, or end-to-end execution.",
-    "primaryCta": { "label": "Get In Touch", "href": "#email" },
+    "primaryCta": { "label": "Get In Touch", "href": "mailto:iam@olivergbagley.com" },
     "secondaryCta": { "label": "Learn More About Me", "href": "/about" }
   }
 }

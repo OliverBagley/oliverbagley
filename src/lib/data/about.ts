@@ -182,6 +182,6 @@ export const aboutCta = z
 	.parse({
 		heading: "Let's work together",
 		subheading: "I'm currently open to full-time opportunities and select consultancy projects.",
-		primaryCta: { label: 'Get in Touch', href: '#email' },
+		primaryCta: { label: 'Get in Touch', href: 'mailto:iam@oliverbagley.com' },
 		secondaryCta: { label: 'View Services', href: '/services' }
 	});

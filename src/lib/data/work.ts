@@ -130,6 +130,6 @@ export const workCta = z
 		heading: 'Got a project in mind?',
 		subheading:
 			"Tell me what you're working on — whether it's a platform build, a complex integration, or an operational problem that needs untangling. I'll tell you honestly if I can help.",
-		primaryCta: { label: 'Get In Touch', href: '#email' },
+		primaryCta: { label: 'Get In Touch', href: 'mailto:iam@oliverbagley.com' },
 		secondaryCta: { label: 'View Services', href: '/services' }
 	});

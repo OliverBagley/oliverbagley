@@ -1,51 +1,16 @@
 <script lang="ts">
-	import { fade } from 'svelte/transition';
-	import { onMount } from 'svelte';
 	import { aboutHero, aboutStory, aboutExperience, aboutSkills, aboutCta } from '$lib/data/about';
 	import EmailLink from '$lib/components/EmailLink.svelte';
-
-	let mounted = false;
-
-	onMount(() => {
-		setTimeout(() => { mounted = true; }, 150);
-	});
-
-	function reveal(node: HTMLElement, options = { delay: 0 }) {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						setTimeout(() => {
-							node.style.opacity = '1';
-							node.style.transform = 'translateY(0)';
-						}, options.delay);
-						observer.unobserve(node);
-					}
-				});
-			},
-			{ threshold: 0.1 }
-		);
-
-		node.style.opacity = '0';
-		node.style.transform = 'translateY(30px)';
-		node.style.transition = 'all 1s cubic-bezier(0.2, 0.65, 0.3, 0.9)';
-		observer.observe(node);
-
-		const rect = node.getBoundingClientRect();
-		if (rect.top < window.innerHeight && rect.bottom > 0) {
-			setTimeout(() => {
-				node.style.opacity = '1';
-				node.style.transform = 'translateY(0)';
-			}, options.delay);
-		}
-
-		return { destroy() { observer.disconnect(); } };
-	}
+	import { reveal } from '$lib/actions';
 </script>
 
 <svelte:head>
 	<title>About — Oliver Bagley</title>
-	<meta name="description" content="Oliver Bagley — Digital Commerce Systems Lead. 8+ years building full commerce stacks across Adobe Commerce, NetSuite, Klaviyo, and Alumio.">
+	<meta name="description" content="Oliver Bagley — Digital Commerce Systems Lead. 8+ years building full commerce stacks across Adobe Commerce, NetSuite, Klaviyo, and Alumio." />
+	<meta property="og:title" content="About — Oliver Bagley" />
+	<meta property="og:description" content="Oliver Bagley — Digital Commerce Systems Lead. 8+ years building full commerce stacks across Adobe Commerce, NetSuite, Klaviyo, and Alumio." />
+	<meta name="twitter:title" content="About — Oliver Bagley" />
+	<meta name="twitter:description" content="Oliver Bagley — Digital Commerce Systems Lead. 8+ years building full commerce stacks across Adobe Commerce, NetSuite, Klaviyo, and Alumio." />
 </svelte:head>
 
 <!-- Hero Section -->
@@ -61,20 +26,15 @@
 				<span class="mx-2">/</span>
 				<span>About</span>
 			</p>
-			{#if mounted}
-				<h1 class="text-5xl lg:text-7xl heading-serif mb-6 text-white" in:fade={{ duration: 800, delay: 100 }}>{aboutHero.heading}</h1>
-				<p class="text-xl lg:text-2xl text-gray-300 leading-relaxed" in:fade={{ duration: 800, delay: 300 }}>{aboutHero.subheading}</p>
-			{:else}
-				<h1 class="text-5xl lg:text-7xl heading-serif mb-6 text-white">{aboutHero.heading}</h1>
-				<p class="text-xl lg:text-2xl text-gray-300 leading-relaxed">{aboutHero.subheading}</p>
-			{/if}
+			<h1 class="text-5xl lg:text-7xl heading-serif mb-6 text-white fade-in-up" style="animation-delay: 0.1s;">{aboutHero.heading}</h1>
+			<p class="text-xl lg:text-2xl text-gray-300 leading-relaxed fade-in-up" style="animation-delay: 0.3s;">{aboutHero.subheading}</p>
 		</div>
 	</div>
 </section>
 
 <!-- Story -->
 <section class="py-20 px-6 bg-white">
-	<div class="max-w-4xl mx-auto">
+	<div class="max-w-7xl mx-auto">
 		<div class="grid md:grid-cols-3 gap-12 mb-16" use:reveal>
 			<div class="md:col-span-1">
 				<div class="flex justify-center mb-8">
@@ -118,7 +78,7 @@
 
 <!-- What I work with -->
 <section class="py-20 px-6 bg-cream">
-	<div class="max-w-4xl mx-auto" use:reveal>
+	<div class="max-w-7xl mx-auto" use:reveal>
 		<h2 class="text-4xl heading-serif mb-12">{aboutSkills.heading}</h2>
 		<div class="space-y-6">
 			{#each aboutSkills.categories as category}
@@ -139,7 +99,7 @@
 
 <!-- CTA -->
 <section class="py-32 px-6" style="background: var(--charcoal);">
-	<div class="max-w-4xl mx-auto text-center" use:reveal>
+	<div class="max-w-7xl mx-auto text-center" use:reveal>
 		<h2 class="text-5xl heading-serif text-white mb-8">{aboutCta.heading}</h2>
 		<p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">{aboutCta.subheading}</p>
 		<div class="flex flex-col sm:flex-row gap-4 justify-center">

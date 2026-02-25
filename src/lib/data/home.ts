@@ -14,7 +14,7 @@ const HeroSchema = z.object({
 });
 
 export const homeHero = HeroSchema.parse({
-	eyebrow: 'Digital Operations & eCommerce Systems Expert',
+	eyebrow: 'Digital Commerce Lead & Systems Architect',
 	heading: { text: 'Building digital experiences that ', highlight: 'drive growth' },
 	tagline:
 		'I architect and maintain full digital commerce stacks — from platform builds and ERP integrations to automation, custom tooling, and everything in between. Most recently at',
@@ -90,11 +90,13 @@ export const homePlatforms = z
 	.object({
 		eyebrow: z.string(),
 		heading: z.string(),
+		description: z.string(),
 		logos: z.array(LogoSchema)
 	})
 	.parse({
 		eyebrow: 'Tech Stack',
 		heading: 'Platforms & tools I work with',
+		description: "I work across the leading commerce platforms, integration middleware, and supporting tools — building stacks that fit the business, not just the brief. These are the ones I know well enough to diagnose at 2am.",
 		logos: [
 			{ name: 'Magento', src: '/media/logos/magento.avif' },
 			{ name: 'NetSuite', src: '/media/logos/netsuite.avif' },
@@ -141,6 +143,6 @@ export const homeContact = z
 		heading: "Looking for someone to own your digital commerce stack?",
 		subheading:
 			"Whether you need a full-time lead, a consultant for a specific project, or someone to untangle a complex integration — I'd love to hear what you're working on.",
-		primaryCta: { label: 'Email', href: '#email' },
+		primaryCta: { label: 'Email', href: 'mailto:iam@oliverbagley.com' },
 		secondaryCta: { label: 'Connect on LinkedIn', href: 'https://www.linkedin.com/in/olivergbagley/' }
 	});

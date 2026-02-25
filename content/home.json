@@ -105,7 +105,7 @@
     "eyebrow": "Get In Touch",
     "heading": "Let's build something together",
     "subheading": "Whether you're looking for strategic guidance, hands-on execution, or a full-time addition to your team, I'd love to hear about your project.",
-    "primaryCta": { "label": "Email", "href": "#email" },
+    "primaryCta": { "label": "Email", "href": "mailto:iam@olivergbagley.com" },
     "secondaryCta": { "label": "Connect on LinkedIn", "href": "https://www.linkedin.com/in/olivergbagley/" }
   }
 }

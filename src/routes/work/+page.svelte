@@ -2,43 +2,16 @@
 	import { projects } from '$lib/data/projects';
 	import { workHero, workProjectsSection, workCta } from '$lib/data/work';
 	import EmailLink from '$lib/components/EmailLink.svelte';
-
-	function reveal(node: HTMLElement, options = { delay: 0 }) {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						setTimeout(() => {
-							node.style.opacity = '1';
-							node.style.transform = 'translateY(0)';
-						}, options.delay);
-						observer.unobserve(node);
-					}
-				});
-			},
-			{ threshold: 0.1 }
-		);
-
-		node.style.opacity = '0';
-		node.style.transform = 'translateY(30px)';
-		node.style.transition = 'all 1s cubic-bezier(0.2, 0.65, 0.3, 0.9)';
-		observer.observe(node);
-
-		const rect = node.getBoundingClientRect();
-		if (rect.top < window.innerHeight && rect.bottom > 0) {
-			setTimeout(() => {
-				node.style.opacity = '1';
-				node.style.transform = 'translateY(0)';
-			}, options.delay);
-		}
-
-		return { destroy() { observer.unobserve(node); } };
-	}
+	import { reveal } from '$lib/actions';
 </script>
 
 <svelte:head>
 	<title>Work — Oliver Bagley</title>
 	<meta name="description" content="Real projects from Oliver Bagley — eCommerce platform work, systems integration, brand development, and full-stack digital products." />
+	<meta property="og:title" content="Work — Oliver Bagley" />
+	<meta property="og:description" content="Real projects from Oliver Bagley — eCommerce platform work, systems integration, brand development, and full-stack digital products." />
+	<meta name="twitter:title" content="Work — Oliver Bagley" />
+	<meta name="twitter:description" content="Real projects from Oliver Bagley — eCommerce platform work, systems integration, brand development, and full-stack digital products." />
 	<meta name="referrer" content="no-referrer" />
 </svelte:head>
 
@@ -81,7 +54,7 @@
 		</div>
 
 		<!-- Alternating Layout Projects -->
-		<div class="max-w-6xl mx-auto px-6 space-y-24">
+		<div class="max-w-7xl mx-auto px-6 space-y-24">
 			{#each projects as project, i}
 				<div class="group block" use:reveal={{ delay: 100 }}>
 					{#if i % 2 === 0}
@@ -123,7 +96,7 @@
 
 <!-- CTA Section -->
 <section class="py-24 px-6 bg-cream border-t border-gray-200">
-	<div class="max-w-4xl mx-auto text-center" use:reveal>
+	<div class="max-w-7xl mx-auto text-center" use:reveal>
 		<h2 class="text-4xl lg:text-5xl heading-serif mb-6">{workCta.heading}</h2>
 		<p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">{workCta.subheading}</p>
 		<div class="flex flex-col sm:flex-row gap-4 justify-center">

@@ -6,7 +6,7 @@
 		date: 'February 2026',
 		readTime: '6 min read',
 		category: 'Systems Integration',
-		coverImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop',
+		coverImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1034&auto=format&fit=crop',
 		caption: 'Server infrastructure and data integration layers — the invisible plumbing of modern eCommerce. Photo: Unsplash'
 	};
 </script>
@@ -17,11 +17,11 @@
 	<meta name="referrer" content="no-referrer" />
 </svelte:head>
 
-<!-- Article Header — clean editorial style -->
-<div class="pt-32 md:pt-40 pb-16 bg-cream">
-	<div class="max-w-3xl mx-auto px-6">
+<!-- Article Header — clean editorial, image above title -->
+<div class="pt-32 md:pt-25 pb-0 bg-cream">
+	<div class="max-w-4xl mx-auto px-6">
 		<!-- Breadcrumb -->
-		<p class="text-sm font-semibold uppercase tracking-widest mb-10" style="color: var(--terracotta);">
+		<p class="text-sm font-semibold uppercase tracking-widest mb-8" style="color: var(--terracotta);">
 			<a href="/" class="hover:opacity-70 transition-opacity">Home</a>
 			<span class="mx-2 opacity-40">/</span>
 			<a href="/blog" class="hover:opacity-70 transition-opacity">Blog</a>
@@ -38,20 +38,9 @@
 			<span>{post.readTime}</span>
 		</div>
 
-		<!-- Title -->
-		<h1 class="text-4xl lg:text-6xl heading-serif mb-6 leading-tight">{post.title}</h1>
-
-		<!-- Lead paragraph -->
-		<p class="text-xl text-gray-600 leading-relaxed">Most commerce problems aren't platform problems. They're integration problems — the messy, invisible layer between your storefront, your ERP, and everything in between.</p>
-	</div>
-</div>
-
-<!-- Article Body -->
-<section class="pt-12 pb-16 px-6 bg-white">
-	<!-- Cover image — wider than text column for visual breathing room -->
-	{#if post.coverImage}
-		<div class="max-w-4xl mx-auto mb-14">
-			<figure>
+		<!-- Cover image sits above the title -->
+		{#if post.coverImage}
+			<figure class="mb-10">
 				<div class="overflow-hidden rounded-2xl aspect-video">
 					<img src={post.coverImage} alt={post.title} class="w-full h-full object-cover" />
 				</div>
@@ -59,10 +48,20 @@
 					<figcaption class="text-xs text-gray-400 mt-3 px-1 leading-relaxed">{post.caption}</figcaption>
 				{/if}
 			</figure>
-		</div>
-	{/if}
+		{/if}
+	</div>
 
-	<div class="max-w-3xl mx-auto">
+</div>
+
+<!-- Article Body -->
+<section class="py-16 px-6 bg-white">
+	<div class="max-w-4xl mx-auto">
+		<!-- Title and lead constrained to reading width -->
+		<div class="max-w-none mx-auto">
+			<h1 class="text-4xl lg:text-6xl heading-serif mb-6 leading-tight">{post.title}</h1>
+			<p class="text-xl text-gray-600 leading-relaxed">Most commerce problems aren't platform problems. They're integration problems — the messy, invisible layer between your storefront, your ERP, and everything in between.</p>
+			<hr class="pb-7 mt-7 border-gray-200" />
+		</div>
 		<div class="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6">
 
 			<p>

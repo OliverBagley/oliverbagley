@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "images:optimize": "bun scripts/optimize-images.ts",
+    "build": "bun run images:optimize && vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
@@ -18,8 +19,10 @@
     "@sveltejs/adapter-cloudflare": "^4.7.2",
     "@sveltejs/kit": "^2.0.0",
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "@types/sharp": "^0.32.0",
     "autoprefixer": "^10.4.24",
     "postcss": "^8.5.6",
+    "sharp": "^0.34.5",
     "svelte": "^5.0.0",
     "svelte-check": "^4.0.0",
     "tailwindcss": "^3.4.19",

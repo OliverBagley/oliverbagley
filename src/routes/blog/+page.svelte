@@ -1,47 +1,20 @@
 <script lang="ts">
 	import { blogHero, posts } from '$lib/data/blog';
-
-	function reveal(node: HTMLElement, options = { delay: 0 }) {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						setTimeout(() => {
-							node.style.opacity = '1';
-							node.style.transform = 'translateY(0)';
-						}, options.delay);
-						observer.unobserve(node);
-					}
-				});
-			},
-			{ threshold: 0.1 }
-		);
-
-		node.style.opacity = '0';
-		node.style.transform = 'translateY(30px)';
-		node.style.transition = 'all 1s cubic-bezier(0.2, 0.65, 0.3, 0.9)';
-		observer.observe(node);
-
-		const rect = node.getBoundingClientRect();
-		if (rect.top < window.innerHeight && rect.bottom > 0) {
-			setTimeout(() => {
-				node.style.opacity = '1';
-				node.style.transform = 'translateY(0)';
-			}, options.delay);
-		}
-
-		return { destroy() { observer.disconnect(); } };
-	}
+	import { reveal } from '$lib/actions';
 </script>
 
 <svelte:head>
 	<title>Blog — Oliver Bagley</title>
 	<meta name="description" content="Notes on digital commerce, systems integration, and eCommerce platform strategy from Oliver Bagley." />
+	<meta property="og:title" content="Blog — Oliver Bagley" />
+	<meta property="og:description" content="Notes on digital commerce, systems integration, and eCommerce platform strategy from Oliver Bagley." />
+	<meta name="twitter:title" content="Blog — Oliver Bagley" />
+	<meta name="twitter:description" content="Notes on digital commerce, systems integration, and eCommerce platform strategy from Oliver Bagley." />
 </svelte:head>
 
 <!-- Page Header — clean editorial, cream background -->
 <div class="pt-32 md:pt-40 pb-0 bg-cream">
-	<div class="max-w-4xl mx-auto px-6">
+	<div class="max-w-7xl mx-auto px-6">
 		<!-- Breadcrumb -->
 		<p class="text-sm font-semibold uppercase tracking-widest mb-10" style="color: var(--terracotta);">
 			<a href="/" class="hover:opacity-70 transition-opacity">Home</a>
@@ -55,7 +28,7 @@
 
 <!-- Posts -->
 <section class="py-16 px-6 bg-cream">
-	<div class="max-w-4xl mx-auto">
+	<div class="max-w-7xl mx-auto">
 		{#if posts.length === 0}
 			<p class="text-gray-400 py-12 border-t border-gray-200">Posts coming soon.</p>
 		{:else}
@@ -111,7 +84,7 @@
 
 <!-- CTA -->
 <section class="py-24 px-6 bg-white border-t border-gray-200">
-	<div class="max-w-3xl mx-auto text-center" use:reveal>
+	<div class="max-w-7xl mx-auto text-center" use:reveal>
 		<h2 class="text-4xl heading-serif mb-6">Have a question or project in mind?</h2>
 		<p class="text-lg text-gray-600 mb-8">I'm always happy to talk through a challenge — even if you're not sure whether it's something I can help with.</p>
 		<div class="flex flex-col sm:flex-row gap-4 justify-center">

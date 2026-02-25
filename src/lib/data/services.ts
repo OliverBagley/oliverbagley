@@ -346,6 +346,6 @@ export const servicesCta = z
 		heading: "Let's discuss your project",
 		subheading:
 			"Tell me where you're at and what's not working. I'll give you an honest view of what's possible and what it would take.",
-		primaryCta: { label: 'Get in Touch', href: '#email' },
+		primaryCta: { label: 'Get in Touch', href: 'mailto:iam@oliverbagley.com' },
 		secondaryCta: { label: 'Connect on LinkedIn', href: 'https://www.linkedin.com/in/olivergbagley/' }
 	});

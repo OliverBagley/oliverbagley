@@ -8,8 +8,8 @@ export const projects = z.array(ProjectSchema).parse([
 		slug: 'frog-bikes-dtc',
 		title: 'Frog Bikes — Commerce Stack',
 		description:
-			'Owned the full digital commerce operation at a specialist children\'s bike brand — spanning Shopify Plus, NetSuite ERP integration via a custom middleware layer, warehouse fulfilment, Klaviyo email, and the analytics infrastructure that tied it all together. Eight years of in-house DTC, built from the inside out.',
-		image: '/media/images/work_thumbs/frog_bikes_thumb.jpg',
+			'Owned the full digital commerce operation at a specialist children\'s bike brand — spanning Shopify Plus, NetSuite ERP integration via a custom middleware layer, warehouse fulfilment, Klaviyo email, and the analytics infrastructure that tied it all together. Growth from zero to 500+ bike D2C per month in the first year.',
+		image: '/media/images/frog_bikes.jpg',
 		tags: ['Shopify Plus', 'ERP Integration', 'Commerce Ops']
 	},
 	{
@@ -17,7 +17,7 @@ export const projects = z.array(ProjectSchema).parse([
 		title: 'DLL Group Digital Catalog',
 		description:
 			'Designed and built a responsive digital catalog for healthcare vehicle exhibitions — optimised for iPad display environments and built to replace printed materials at trade shows.',
-		image: '/media/images/work_thumbs/dll_digital_catalog_thumb.jpg',
+		image: '/media/images/dll.jpg',
 		tags: ['Development', 'Design', 'Photography']
 	},
 	{
@@ -25,7 +25,7 @@ export const projects = z.array(ProjectSchema).parse([
 		title: 'FordPass Transformation',
 		description:
 			'Led end-to-end research and UX strategy to reimagine how Ford dealers sell cars and manage aftercare — mapping customer journeys and identifying friction points across the full ownership lifecycle.',
-		image: '/media/images/work_thumbs/ford_thumb_1.jpg',
+		image: '/media/images/fordpass.png',
 		tags: ['Strategy', 'UX/UI', 'Research']
 	},
 	{
@@ -33,7 +33,7 @@ export const projects = z.array(ProjectSchema).parse([
 		title: 'Fox Smart Finance',
 		description:
 			'Full product build from zero: brand identity, UX design, and full-stack development of a finance tracking web app. Sole developer and designer from brief to live product.',
-		image: '/media/images/work_thumbs/fox_thumb.jpg',
+		image: '/media/images/fox.png',
 		tags: ['Full-Stack', 'Product', 'Brand']
 	},
 	{
@@ -41,7 +41,7 @@ export const projects = z.array(ProjectSchema).parse([
 		title: 'Ankura Services',
 		description:
 			'Built the complete digital presence for a new marketing services startup — brand identity, website, and go-to-market collateral — from initial brief through to live launch.',
-		image: '/media/images/work_thumbs/ankura_thumb.jpg',
+		image: '/media/images/ankura.png',
 		tags: ['Brand', 'Web', 'Marketing']
 	},
 	{

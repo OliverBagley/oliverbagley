@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { page } from '$app/stores';
-	import { slide, fade } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 	import { navigating } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { siteNav, siteFooter, serviceNavLinks } from '$lib/data/site';
@@ -32,12 +32,57 @@
 	}
 </script>
 
-<nav class="fixed top-0 left-0 right-0 z-50 bg-cream/90 nav-glass border-b border-black/5">
-	<div class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
-		<a href="/" class="text-3xl font-bold heading-serif" on:click={closeMobileMenu}>OB</a>
+<svelte:head>
+	<!-- Canonical URL — prevents duplicate content issues -->
+	<link rel="canonical" href="https://oliverbagley.com{$page.url.pathname}" />
+	<!-- Default Open Graph (individual pages override title/description) -->
+	<meta property="og:site_name" content="Oliver Bagley" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://oliverbagley.com{$page.url.pathname}" />
+	<meta property="og:image" content="https://oliverbagley.com/media/images/oliver.jpg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content="https://oliverbagley.com/media/images/oliver.jpg" />
+</svelte:head>
 
-		<!-- Desktop Navigation -->
-		<div class="hidden md:flex gap-8 items-center uppercase">
+<!-- Floating pill nav — two separate glass pills on desktop, one connected pill on mobile -->
+<nav class="fixed top-0 left-0 right-0 z-50 pointer-events-none">
+	<div class="max-w-7xl mx-auto px-5 pt-4 flex justify-between items-center">
+
+		<!-- Desktop-only: Logo pill — square 1:1 -->
+		<a
+			href="/"
+			class="hidden md:flex nav-pill pointer-events-auto w-14 h-14 items-center justify-center rounded-2xl text-3xl font-bold heading-serif leading-none hover:opacity-80 transition-opacity"
+			on:click={closeMobileMenu}
+		>OB</a>
+
+		<!-- Mobile-only: single connected pill spanning logo + hamburger -->
+		<div class="md:hidden nav-pill pointer-events-auto flex w-full items-center justify-between px-4 h-14 rounded-2xl">
+			<a
+				href="/"
+				class="text-3xl font-bold heading-serif leading-none hover:opacity-80 transition-opacity"
+				on:click={closeMobileMenu}
+			>OB</a>
+			<button
+				on:click={toggleMobileMenu}
+				class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-black/5 transition-colors"
+				aria-label="Toggle menu"
+			>
+				{#if mobileMenuOpen}
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+					</svg>
+				{:else}
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+					</svg>
+				{/if}
+			</button>
+		</div>
+
+		<!-- Desktop Navigation pill -->
+		<div class="hidden md:flex nav-pill pointer-events-auto gap-5 items-center uppercase pl-5 pr-2 py-2.5 rounded-2xl">
 			{#each siteNav.links as link}
 				{#if link.label === 'Services'}
 					<div class="relative group/services">
@@ -51,7 +96,7 @@
 						<div class="absolute top-full left-1/2 -translate-x-1/2 invisible opacity-0 pointer-events-none group-hover/services:visible group-hover/services:opacity-100 group-hover/services:pointer-events-auto transition-all duration-150 z-[60] pt-2">
 							<div class="bg-white rounded-xl shadow-xl border border-gray-100 py-1 w-56">
 								{#each serviceNavLinks as child}
-									<a href={child.href} class="block px-4 py-2.5 text-sm font-medium text-charcoal hover:bg-cream transition-colors normal-case tracking-normal">
+									<a href={child.href} class="block px-4 py-2.5 text-sm font-medium hover:bg-cream transition-colors normal-case tracking-normal" style="color: var(--charcoal);">
 										{child.label}
 									</a>
 								{/each}
@@ -62,38 +107,24 @@
 					<a href={link.href} class="nav-link text-sm font-medium">{link.label}</a>
 				{/if}
 			{/each}
-			<a href={siteNav.cta.href} class="cta-button py-2 px-6 text-sm title-uppercase">
+			<a href={siteNav.cta.href} class="cta-button text-xs uppercase tracking-widest" style="padding: 0.7rem 1.1rem;">
 				<span>{siteNav.cta.label}</span>
 			</a>
 		</div>
-
-		<!-- Mobile Menu Button -->
-		<button
-			on:click={toggleMobileMenu}
-			class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-warm-gray/10 transition-colors"
-			aria-label="Toggle menu"
-		>
-			{#if mobileMenuOpen}
-				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-				</svg>
-			{:else}
-				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-				</svg>
-			{/if}
-		</button>
 	</div>
 
-	<!-- Mobile Menu -->
+	<!-- Mobile dropdown — floating pill below the header row -->
 	{#if mobileMenuOpen}
-		<div class="md:hidden border-t border-warm-gray/10 bg-gray-50 shadow-lg" transition:slide={{ duration: 200 }}>
-			<div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-2">
+		<div
+			class="md:hidden mx-5 mt-2 nav-pill rounded-2xl pointer-events-auto"
+			transition:slide={{ duration: 200 }}
+		>
+			<div class="px-5 py-4 flex flex-col gap-1">
 				{#each siteNav.links as link}
 					{#if link.label === 'Services'}
 						<button
 							on:click={() => (servicesExpanded = !servicesExpanded)}
-							class="nav-link text-base font-medium py-3 px-4 rounded-lg hover:bg-warm-gray/10 transition-colors flex items-center justify-between w-full text-left"
+							class="nav-link text-base font-medium py-2.5 px-3 rounded-lg hover:bg-black/5 transition-colors flex items-center justify-between w-full text-left uppercase tracking-wide"
 						>
 							<span>{link.label}</span>
 							<svg class="w-4 h-4 transition-transform duration-200 {servicesExpanded ? 'rotate-180' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,11 +132,11 @@
 							</svg>
 						</button>
 						{#if servicesExpanded}
-							<div class="pl-4 flex flex-col gap-1" transition:slide={{ duration: 150 }}>
+							<div class="pl-3 flex flex-col gap-1" transition:slide={{ duration: 150 }}>
 								{#each serviceNavLinks as child}
 									<a
 										href={child.href}
-										class="nav-link text-sm font-medium py-2.5 px-4 rounded-lg hover:bg-warm-gray/10 transition-colors"
+										class="nav-link text-sm font-medium py-2 px-3 rounded-lg hover:bg-black/5 transition-colors"
 										on:click={closeMobileMenu}
 									>
 										{child.label}
@@ -116,7 +147,7 @@
 					{:else}
 						<a
 							href={link.href}
-							class="nav-link text-base font-medium py-3 px-4 rounded-lg hover:bg-warm-gray/10 transition-colors"
+							class="nav-link text-base font-medium py-2.5 px-3 rounded-lg hover:bg-black/5 transition-colors uppercase tracking-wide"
 							on:click={closeMobileMenu}
 						>
 							{link.label}
@@ -132,7 +163,7 @@
 </nav>
 
 {#key $page.url.pathname}
-	<div in:fade={{ duration: 200, delay: 200 }} out:fade={{ duration: 150 }}>
+	<div class="page-wrapper">
 		<slot />
 	</div>
 {/key}
