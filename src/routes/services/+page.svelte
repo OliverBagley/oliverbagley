@@ -158,7 +158,7 @@
 <!-- Process & Engagement -->
 <section class="py-20 px-6" style="background: var(--charcoal);">
 	<div class="max-w-7xl mx-auto">
-		<!-- Process -->
+		<!-- Process 
 		<div class="max-w-7xl mx-auto mb-20" use:reveal>
 			<div class="text-center mb-12">
 				<p class="text-sm font-semibold uppercase tracking-widest mb-4" style="color: var(--terracotta);">{servicesProcess.eyebrow}</p>
@@ -175,10 +175,11 @@
 					</div>
 				{/each}
 			</div>
-		</div>
+		</div>-->
 
 		<!-- Engagement Options -->
-		<div class="border-t border-white/10 pt-20" use:reveal>
+		 <div class="max-w-7xl mx-auto mb-20" use:reveal>
+		<!-- <div class="border-t border-white/10 pt-20" use:reveal> -->
 			<div class="text-center mb-12">
 				<p class="text-sm font-semibold uppercase tracking-widest mb-4" style="color: var(--terracotta);">{servicesEngagement.eyebrow}</p>
 				<h2 class="text-4xl heading-serif text-white mb-4">{servicesEngagement.heading}</h2>
