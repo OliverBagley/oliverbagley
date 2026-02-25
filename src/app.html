@@ -1,19 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600;700&family=Google+Sans+Code:wght@400;500&display=swap" rel="stylesheet">
-	<link rel="icon" type="image/png" href="/media/favicon/favicon-96x96.png" sizes="96x96" />
-	<link rel="icon" type="image/svg+xml" href="/media/favicon/favicon.svg" />
-	<link rel="shortcut icon" href="/media/favicon/favicon.ico" />
-	<link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png" />
-	<link rel="manifest" href="/media/favicon/site.webmanifest" />
-		%sveltekit.head%
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">%sveltekit.body%</div>
-	</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600;700&family=Google+Sans+Code:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="icon" type="image/png" href="/media/favicon/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/media/favicon/favicon.svg" />
+        <link rel="shortcut icon" href="/media/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/media/favicon/apple-touch-icon.png" />
+        <link rel="manifest" href="/media/favicon/site.webmanifest" />
+
+        <!-- iOS Safari -->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Oliver Bagley" />
+
+        <!-- Android / Chrome -->
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="theme-color" content="#1a1a1a" />
+
+        <!-- Prevent iOS auto-linking phone numbers, dates, addresses -->
+        <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
+
+        <script src="https://cookiechimp.com/widget/4NGtm5Y.js"></script>
+        <!-- Google Tag Manager -->
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != "dataLayer" ? "&l=" + l : "";
+                j.async = true;
+                j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, "script", "dataLayer", "GTM-NFJC8RB");
+        </script>
+        <!-- End Google Tag Manager -->
+        %sveltekit.head%
+    </head>
+    <body data-sveltekit-preload-data="hover">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript
+            ><iframe
+                src="https://www.googletagmanager.com/ns.html?id=GTM-NFJC8RB"
+                height="0"
+                width="0"
+                style="display: none; visibility: hidden"
+            ></iframe
+        ></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <div style="display: contents">%sveltekit.body%</div>
+    </body>
 </html>
