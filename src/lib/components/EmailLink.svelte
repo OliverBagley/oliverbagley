@@ -51,9 +51,17 @@
 		toastEl = document.createElement('div');
 		toastEl.className = 'ob-email-toast';
 
+		const icon = document.createElement('span');
+		icon.className = 'ob-email-toast__icon';
+		icon.textContent = '✉️';
+
 		const addrSpan = document.createElement('span');
 		addrSpan.className = 'ob-email-toast__addr';
 		addrSpan.textContent = addr;
+
+		// Button group
+		const actions = document.createElement('div');
+		actions.className = 'ob-email-toast__actions';
 
 		const copyBtn = document.createElement('button');
 		copyBtn.className = 'ob-email-toast__copy';
@@ -68,18 +76,52 @@
 			}
 		});
 
+		const openMailClientBtn = document.createElement('a');
+		openMailClientBtn.className = 'ob-email-toast__copy';
+		openMailClientBtn.textContent = 'Mail Client';
+		openMailClientBtn.href = `mailto:${addr}`;
+		openMailClientBtn.target = '_blank';
+
+		actions.appendChild(copyBtn);
+		actions.appendChild(openMailClientBtn);
+
+		toastEl.appendChild(icon);
 		toastEl.appendChild(addrSpan);
-		toastEl.appendChild(copyBtn);
+		toastEl.appendChild(actions);
 		document.body.appendChild(toastEl);
 
 		requestAnimationFrame(() => toastEl?.classList.add('ob-email-toast--visible'));
 
-		toastTimer = setTimeout(() => {
-			if (toastEl) {
-				toastEl.classList.remove('ob-email-toast--visible');
-				toastEl.addEventListener('transitionend', () => toastEl?.remove(), { once: true });
+		function dismiss() {
+			if (!toastEl) return;
+			clearTimeout(toastTimer);
+			window.removeEventListener('scroll', handleScroll, { capture: true });
+			toastEl.classList.remove('ob-email-toast--visible');
+			toastEl.addEventListener('transitionend', () => toastEl?.remove(), { once: true });
+		}
+
+		function startDismissTimer() {
+			clearTimeout(toastTimer);
+			toastTimer = setTimeout(dismiss, 4000);
+		}
+
+		// Scroll-up detection — dismiss if user scrolls up ≥20% of viewport from position at open
+		const scrollThreshold = window.innerHeight * 0.20;
+		const openedAtScrollY = window.scrollY;
+
+		function handleScroll() {
+			const delta = openedAtScrollY - window.scrollY; // positive = scrolled up from open position
+			if (delta >= scrollThreshold) {
+				dismiss();
 			}
-		}, 4000);
+		}
+
+		window.addEventListener('scroll', handleScroll, { passive: true, capture: true });
+
+		toastEl.addEventListener('mouseenter', () => clearTimeout(toastTimer));
+		toastEl.addEventListener('mouseleave', () => startDismissTimer());
+
+		startDismissTimer();
 	}
 </script>
 

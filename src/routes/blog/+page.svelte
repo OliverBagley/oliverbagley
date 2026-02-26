@@ -21,8 +21,8 @@
 			<span class="mx-2 opacity-40">/</span>
 			<span class="opacity-60">Blog</span>
 		</p>
-		<h1 class="text-5xl lg:text-7xl heading-serif mb-5">{blogHero.heading}</h1>
-		<p class="text-xl text-gray-600 max-w-2xl leading-relaxed">{blogHero.subheading}</p>
+		<h1 class="text-5xl lg:text-7xl heading-serif mb-5" use:reveal={{ delay: 100 }}>{blogHero.heading}</h1>
+		<p class="text-xl text-gray-600 max-w-2xl leading-relaxed" use:reveal={{ delay: 300 }}>{blogHero.subheading}</p>
 	</div>
 </div>
 

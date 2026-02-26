@@ -1,5 +1,6 @@
 <script lang="ts">
 	import EmailLink from '$lib/components/EmailLink.svelte';
+	import { reveal } from '$lib/actions';
 
 	const post = {
 		title: "Why your eCommerce stack has a glue problem",
@@ -14,14 +15,51 @@
 <svelte:head>
 	<title>{post.title} — Oliver Bagley</title>
 	<meta name="description" content="Most eCommerce problems aren't platform problems. They're integration problems — the messy, invisible layer between your storefront, ERP, and everything in between." />
-	<meta name="referrer" content="no-referrer" />
+
+	<!-- Open Graph -->
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="{post.title} — Oliver Bagley" />
+	<meta property="og:description" content="Most eCommerce problems aren't platform problems. They're integration problems — the messy, invisible layer between your storefront, ERP, and everything in between." />
+	<meta property="og:image" content="{post.coverImage}" />
+	<meta property="article:published_time" content="2026-02-01" />
+	<meta property="article:author" content="Oliver Bagley" />
+	<meta property="article:section" content="{post.category}" />
+
+	<!-- Twitter / X -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="{post.title} — Oliver Bagley" />
+	<meta name="twitter:description" content="Most eCommerce problems aren't platform problems. They're integration problems — the messy, invisible layer between your storefront, ERP, and everything in between." />
+	<meta name="twitter:image" content="{post.coverImage}" />
+
+	<!-- JSON-LD: Article structured data -->
+	{@html `<script type="application/ld+json">${JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "Article",
+		"headline": post.title,
+		"description": "Most eCommerce problems aren't platform problems. They're integration problems.",
+		"datePublished": "2026-02-01",
+		"dateModified": "2026-02-01",
+		"author": {
+			"@type": "Person",
+			"name": "Oliver Bagley",
+			"url": "https://oliverbagley.com/about"
+		},
+		"publisher": {
+			"@type": "Person",
+			"name": "Oliver Bagley",
+			"url": "https://oliverbagley.com"
+		},
+		"image": post.coverImage,
+		"url": "https://oliverbagley.com/blog/posts/why-your-ecommerce-stack-has-a-glue-problem",
+		"mainEntityOfPage": "https://oliverbagley.com/blog/posts/why-your-ecommerce-stack-has-a-glue-problem"
+	})}<\/script>`}
 </svelte:head>
 
 <!-- Article Header — clean editorial, image above title -->
 <div class="pt-32 md:pt-25 pb-0 bg-cream">
 	<div class="max-w-4xl mx-auto px-6">
 		<!-- Breadcrumb -->
-		<p class="text-sm font-semibold uppercase tracking-widest mb-8" style="color: var(--terracotta);">
+		<p class="text-sm font-semibold uppercase tracking-widest mb-8" style="color: var(--terracotta);" use:reveal={{ delay: 50 }}>
 			<a href="/" class="hover:opacity-70 transition-opacity">Home</a>
 			<span class="mx-2 opacity-40">/</span>
 			<a href="/blog" class="hover:opacity-70 transition-opacity">Blog</a>
@@ -30,7 +68,7 @@
 		</p>
 
 		<!-- Meta row -->
-		<div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-8">
+		<div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-8" use:reveal={{ delay: 150 }}>
 			<span class="text-xs font-semibold px-3 py-1 rounded-full" style="background: rgba(215,122,72,0.12); color: var(--terracotta);">{post.category}</span>
 			<span class="opacity-40">·</span>
 			<span>{post.date}</span>
@@ -40,7 +78,7 @@
 
 		<!-- Cover image sits above the title -->
 		{#if post.coverImage}
-			<figure class="mb-10">
+			<figure class="mb-10" use:reveal={{ delay: 250 }}>
 				<div class="overflow-hidden rounded-2xl aspect-video">
 					<img src={post.coverImage} alt={post.title} class="w-full h-full object-cover" />
 				</div>
@@ -58,8 +96,8 @@
 	<div class="max-w-4xl mx-auto">
 		<!-- Title and lead constrained to reading width -->
 		<div class="max-w-none mx-auto">
-			<h1 class="text-4xl lg:text-6xl heading-serif mb-6 leading-tight">{post.title}</h1>
-			<p class="text-xl text-gray-600 leading-relaxed">Most commerce problems aren't platform problems. They're integration problems — the messy, invisible layer between your storefront, your ERP, and everything in between.</p>
+			<h1 class="text-4xl lg:text-6xl heading-serif mb-6 leading-tight" use:reveal={{ delay: 350 }}>{post.title}</h1>
+			<p class="text-xl text-gray-600 leading-relaxed" use:reveal={{ delay: 450 }}>Most commerce problems aren't platform problems. They're integration problems — the messy, invisible layer between your storefront, your ERP, and everything in between.</p>
 			<hr class="pb-7 mt-7 border-gray-200" />
 		</div>
 		<div class="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6">
@@ -72,52 +110,58 @@
 				Sometimes that's true. But more often, the platform is fine — what's broken is everything around it.
 			</p>
 
-			<h2 class="text-3xl heading-serif mt-12 mb-4">The invisible layer nobody talks about</h2>
+			<h2 class="text-3xl heading-serif mt-12 mb-4" use:reveal>The invisible layer nobody talks about</h2>
 
-			<p>
-				Every commerce operation has a stack — the storefront, the ERP, the email platform, the warehouse management system, the returns portal, the analytics tool. Most teams spend a lot of time thinking about each of these in isolation: is Shopify the right choice? Should we implement NetSuite? Which email platform has the best deliverability?
-			</p>
+			<div use:reveal={{ delay: 80 }}>
+				<p>
+					Every commerce operation has a stack — the storefront, the ERP, the email platform, the warehouse management system, the returns portal, the analytics tool. Most teams spend a lot of time thinking about each of these in isolation: is Shopify the right choice? Should we implement NetSuite? Which email platform has the best deliverability?
+				</p>
 
-			<p>
-				What gets far less attention is the glue between them. How does an order placed on your storefront get into your ERP? How does inventory update flow back to the product catalogue? When a customer contacts support, do they see the same view of that customer's history that your warehouse team sees?
-			</p>
+				<p>
+					What gets far less attention is the glue between them. How does an order placed on your storefront get into your ERP? How does inventory update flow back to the product catalogue? When a customer contacts support, do they see the same view of that customer's history that your warehouse team sees?
+				</p>
 
-			<p>
-				This is the glue problem. And it compounds.
-			</p>
+				<p>
+					This is the glue problem. And it compounds.
+				</p>
+			</div>
 
-			<h2 class="text-3xl heading-serif mt-12 mb-4">How integration debt accumulates</h2>
+			<h2 class="text-3xl heading-serif mt-12 mb-4" use:reveal>How integration debt accumulates</h2>
 
-			<p>
-				In the early stages of most eCommerce businesses, integrations are handled one of three ways:
-			</p>
+			<div use:reveal={{ delay: 80 }}>
+				<p>
+					In the early stages of most eCommerce businesses, integrations are handled one of three ways:
+				</p>
 
-			<ul class="space-y-3 pl-4">
-				<li class="flex items-start gap-3">
-					<span class="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style="background: var(--terracotta);"></span>
-					<span><strong>Manually.</strong> Someone exports a CSV from the platform and imports it into the ERP every morning. Works until it doesn't, and then you've got a data integrity problem.</span>
-				</li>
-				<li class="flex items-start gap-3">
-					<span class="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style="background: var(--terracotta);"></span>
-					<span><strong>Through a third-party app.</strong> There's an off-the-shelf connector between Platform A and System B. It almost does what you need, and the "almost" creates workarounds that eventually become critical dependencies nobody understands.</span>
-				</li>
-				<li class="flex items-start gap-3">
-					<span class="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style="background: var(--terracotta);"></span>
-					<span><strong>Through bespoke code nobody remembers writing.</strong> A developer at a previous agency built a custom integration five years ago. It lives on a server somewhere. Nobody has touched it since because the last time someone did, orders went missing.</span>
-				</li>
-			</ul>
+				<ul class="space-y-3 pl-4">
+					<li class="flex items-start gap-3">
+						<span class="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style="background: var(--terracotta);"></span>
+						<span><strong>Manually.</strong> Someone exports a CSV from the platform and imports it into the ERP every morning. Works until it doesn't, and then you've got a data integrity problem.</span>
+					</li>
+					<li class="flex items-start gap-3">
+						<span class="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style="background: var(--terracotta);"></span>
+						<span><strong>Through a third-party app.</strong> There's an off-the-shelf connector between Platform A and System B. It almost does what you need, and the "almost" creates workarounds that eventually become critical dependencies nobody understands.</span>
+					</li>
+					<li class="flex items-start gap-3">
+						<span class="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style="background: var(--terracotta);"></span>
+						<span><strong>Through bespoke code nobody remembers writing.</strong> A developer at a previous agency built a custom integration five years ago. It lives on a server somewhere. Nobody has touched it since because the last time someone did, orders went missing.</span>
+					</li>
+				</ul>
 
-			<p class="mt-6">
-				Each of these approaches works — until the business grows, the requirements change, or something breaks at 2am on a Saturday.
-			</p>
+				<p class="mt-6">
+					Each of these approaches works — until the business grows, the requirements change, or something breaks at 2am on a Saturday.
+				</p>
+			</div>
 
-			<h2 class="text-3xl heading-serif mt-12 mb-4">What a proper integration layer looks like</h2>
+			<h2 class="text-3xl heading-serif mt-12 mb-4" use:reveal>What a proper integration layer looks like</h2>
 
-			<p>
-				The goal isn't to replace everything with a perfect, future-proof system (that doesn't exist). The goal is to build an integration layer that is:
-			</p>
+			<div use:reveal={{ delay: 80 }}>
+				<p>
+					The goal isn't to replace everything with a perfect, future-proof system (that doesn't exist). The goal is to build an integration layer that is:
+				</p>
+			</div>
 
-			<div class="grid md:grid-cols-2 gap-4 my-8 not-prose">
+			<div class="grid md:grid-cols-2 gap-4 my-8 not-prose" use:reveal={{ delay: 120 }}>
 				{#each [
 					{ title: 'Visible', description: 'You can see what\'s flowing between systems, what\'s failed, and what\'s backed up — without having to dig into server logs.' },
 					{ title: 'Resilient', description: 'When something upstream fails, messages queue rather than disappear. You can replay them once the issue is resolved.' },
@@ -131,51 +175,55 @@
 				{/each}
 			</div>
 
-			<p>
-				For most mid-market brands, this means adopting a middleware layer — something like Alumio, which provides a visual interface for building and monitoring data flows, with built-in logging, error handling, and retry logic. It sits between your platforms and handles the translation of data between them.
-			</p>
+			<div use:reveal>
+				<p>
+					For most mid-market brands, this means adopting a middleware layer — something like Alumio, which provides a visual interface for building and monitoring data flows, with built-in logging, error handling, and retry logic. It sits between your platforms and handles the translation of data between them.
+				</p>
 
-			<p>
-				The alternative — point-to-point integrations between every system — quickly becomes a web of dependencies that's impossible to reason about. Every new platform you add means new integrations with every existing system. A middleware layer gives you one place to route everything through.
-			</p>
+				<p>
+					The alternative — point-to-point integrations between every system — quickly becomes a web of dependencies that's impossible to reason about. Every new platform you add means new integrations with every existing system. A middleware layer gives you one place to route everything through.
+				</p>
+			</div>
 
-			<h2 class="text-3xl heading-serif mt-12 mb-4">The practical takeaway</h2>
+			<h2 class="text-3xl heading-serif mt-12 mb-4" use:reveal>The practical takeaway</h2>
 
-			<p>
-				Before you decide to replatform, change ERP, or onboard a new marketing tool, audit your integration layer. Ask yourself:
-			</p>
+			<div use:reveal={{ delay: 80 }}>
+				<p>
+					Before you decide to replatform, change ERP, or onboard a new marketing tool, audit your integration layer. Ask yourself:
+				</p>
 
-			<ul class="space-y-2 pl-4 my-4">
-				<li class="flex items-start gap-3">
-					<span style="color: var(--terracotta);" class="font-bold mt-0.5">—</span>
-					<span>If one integration fails, how would you know?</span>
-				</li>
-				<li class="flex items-start gap-3">
-					<span style="color: var(--terracotta);" class="font-bold mt-0.5">—</span>
-					<span>How long does it take for an order placed online to appear accurately in your ERP?</span>
-				</li>
-				<li class="flex items-start gap-3">
-					<span style="color: var(--terracotta);" class="font-bold mt-0.5">—</span>
-					<span>When was the last time you had a data discrepancy between systems that took hours (or days) to diagnose?</span>
-				</li>
-				<li class="flex items-start gap-3">
-					<span style="color: var(--terracotta);" class="font-bold mt-0.5">—</span>
-					<span>Is there any part of your integration layer that only one person understands?</span>
-				</li>
-			</ul>
+				<ul class="space-y-2 pl-4 my-4">
+					<li class="flex items-start gap-3">
+						<span style="color: var(--terracotta);" class="font-bold mt-0.5">—</span>
+						<span>If one integration fails, how would you know?</span>
+					</li>
+					<li class="flex items-start gap-3">
+						<span style="color: var(--terracotta);" class="font-bold mt-0.5">—</span>
+						<span>How long does it take for an order placed online to appear accurately in your ERP?</span>
+					</li>
+					<li class="flex items-start gap-3">
+						<span style="color: var(--terracotta);" class="font-bold mt-0.5">—</span>
+						<span>When was the last time you had a data discrepancy between systems that took hours (or days) to diagnose?</span>
+					</li>
+					<li class="flex items-start gap-3">
+						<span style="color: var(--terracotta);" class="font-bold mt-0.5">—</span>
+						<span>Is there any part of your integration layer that only one person understands?</span>
+					</li>
+				</ul>
 
-			<p>
-				If any of those land uncomfortably, you probably don't have a platform problem. You have a glue problem.
-			</p>
+				<p>
+					If any of those land uncomfortably, you probably don't have a platform problem. You have a glue problem.
+				</p>
 
-			<p class="text-gray-500 italic border-l-4 pl-4 my-8" style="border-color: var(--terracotta);">
-				The good news is that glue problems are very fixable — and fixing them usually unlocks far more value than a platform migration would.
-			</p>
+				<p class="text-gray-500 italic border-l-4 pl-4 my-8" style="border-color: var(--terracotta);">
+					The good news is that glue problems are very fixable — and fixing them usually unlocks far more value than a platform migration would.
+				</p>
+			</div>
 
 		</div>
 
 		<!-- Author / CTA -->
-		<div class="mt-16 pt-12 border-t border-gray-100">
+		<div class="mt-16 pt-12 border-t border-gray-100" use:reveal>
 			<div class="flex items-center gap-4 mb-8">
 				<div class="w-14 h-14 rounded-full overflow-hidden flex-shrink-0 bg-gray-100">
 					<img src="/media/images/oliver.jpg" alt="Oliver Bagley" class="w-full h-full object-cover" />
@@ -201,7 +249,7 @@
 		</div>
 
 		<!-- Back link -->
-		<div class="mt-10">
+		<div class="mt-10" use:reveal>
 			<a href="/blog" class="text-sm font-semibold inline-flex items-center gap-1 hover:opacity-70 transition-opacity" style="color: var(--terracotta);">
 				<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>

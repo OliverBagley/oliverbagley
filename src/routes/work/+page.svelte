@@ -28,8 +28,8 @@
 				<span class="mx-2">/</span>
 				<span>Work</span>
 			</p>
-			<h1 class="text-5xl lg:text-7xl font-bold text-white mb-6 heading-serif">{workHero.heading}</h1>
-			<p class="text-xl lg:text-2xl text-gray-300 mb-8">{workHero.subheading}</p>
+			<h1 class="text-5xl lg:text-7xl font-bold text-white mb-6 heading-serif" use:reveal={{ delay: 100 }}>{workHero.heading}</h1>
+			<p class="text-xl lg:text-2xl text-gray-300 mb-8" use:reveal={{ delay: 300 }}>{workHero.subheading}</p>
 		</div>
 
 		<!-- Stats -->

@@ -4,6 +4,19 @@
 	import { slide } from 'svelte/transition';
 	import { navigating } from '$app/stores';
 	import { onMount } from 'svelte';
+	import { onNavigate } from '$app/navigation';
+
+	// View Transitions API — smooth cross-fade between pages without destroying
+	// shared elements like the nav. Falls back gracefully in unsupported browsers.
+	onNavigate((navigation) => {
+		if (!document.startViewTransition) return;
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 	import { siteNav, siteFooter, serviceNavLinks } from '$lib/data/site';
 	import EmailLink from '$lib/components/EmailLink.svelte';
 
@@ -44,6 +57,17 @@
 	<meta property="og:image:height" content="630" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:image" content="https://oliverbagley.com/media/images/oliver.jpg" />
+
+	<!-- JSON-LD: Person schema — helps Google associate all pages with Oliver Bagley -->
+	{@html `<script type="application/ld+json">${JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"name": "Oliver Bagley",
+		"jobTitle": "Digital Commerce Systems Lead",
+		"url": "https://oliverbagley.com",
+		"image": "https://oliverbagley.com/media/images/oliver.jpg",
+		"sameAs": ["https://www.linkedin.com/in/olivergbagley/"]
+	})}<\/script>`}
 </svelte:head>
 
 <!-- Floating pill nav — two separate glass pills on desktop, one connected pill on mobile -->
@@ -162,11 +186,7 @@
 	{/if}
 </nav>
 
-{#key $page.url.pathname}
-	<div class="page-wrapper">
-		<slot />
-	</div>
-{/key}
+<slot />
 
 <footer class="py-12 px-6 border-t border-gray-200 bg-cream font-code">
 	<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">

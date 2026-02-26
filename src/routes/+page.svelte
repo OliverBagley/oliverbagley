@@ -29,22 +29,19 @@
 		>
 			<div>
 				<p
-					class="text-sm font-semibold uppercase tracking-widest mb-6 fade-in-up"
-					style="color: var(--terracotta); animation-delay: 0.1s;"
+					class="text-sm font-semibold uppercase tracking-widest mb-6" style="color: var(--terracotta);" use:reveal={{ delay: 100 }}
 				>
 					{homeHero.eyebrow}
 				</p>
 				<h1
-					class="text-6xl lg:text-7xl heading-serif mb-8 fade-in-up"
-					style="animation-delay: 0.25s;"
+					class="text-6xl lg:text-7xl heading-serif mb-8" use:reveal={{ delay: 250 }}
 				>
 					{homeHero.heading.text}<span class="gradient-text"
 						>{homeHero.heading.highlight}</span
 					>
 				</h1>
 				<p
-					class="text-xl text-gray-600 mb-8 leading-relaxed fade-in-up"
-					style="animation-delay: 0.4s;"
+					class="text-xl text-gray-600 mb-8 leading-relaxed" use:reveal={{ delay: 400 }}
 				>
 					{homeHero.tagline}
 					{#if homeHero.currentRole.href}
@@ -59,8 +56,7 @@
 					{/if}
 				</p>
 				<div
-					class="flex gap-4 fade-in-up"
-					style="animation-delay: 0.55s;"
+					class="flex gap-4" use:reveal={{ delay: 550 }}
 				>
 					<a href={homeHero.primaryCta.href} class="cta-button">
 						<span>{homeHero.primaryCta.label}</span>
@@ -77,8 +73,7 @@
 			<div class="flex justify-center lg:justify-end w-full">
 				<div class="relative w-full max-w-[280px] md:max-w-md">
 					<div
-						class="absolute -top-4 -right-4 w-full h-full fade-in-up"
-						style="animation-delay: 0.3s;"
+						class="absolute -top-4 -right-4 w-full h-full" use:reveal={{ delay: 300 }}
 					>
 						<div
 							class="hero-bg-blob w-full h-full opacity-20 animate-float-slow"
@@ -86,8 +81,7 @@
 						></div>
 					</div>
 					<div
-						class="relative z-10 fade-in-up"
-						style="animation-delay: 0.45s;"
+						class="relative z-10" use:reveal={{ delay: 450 }}
 					>
 						<div
 							class="hero-image-container overflow-hidden shadow-2xl animate-float-medium transition-all duration-300"
@@ -101,8 +95,7 @@
 					</div>
 					<!-- Floating Stat Card -->
 					<div
-						class="absolute bottom-8 -left-8 z-20 hidden md:block max-w-[16rem] fade-in-up"
-						style="animation-delay: 0.6s;"
+						class="absolute bottom-8 -left-8 z-20 hidden md:block max-w-[16rem]" use:reveal={{ delay: 600 }}
 					>
 						<div
 							class="glass-card p-6 animate-float-medium"

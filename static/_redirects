@@ -6,8 +6,8 @@
 /privacy.html /privacy 301
 /terms.html /terms 301
 
-# Redirect /work to /#work
-/work /#work 302
+# /work is a real SvelteKit page — no redirect needed.
+# (Removed stale "/work /#work 302" that was intercepting the route.)
 
 # Legacy case study redirects
 /case-studies/dll-digital-catalog.html /work/dll-digital-catalog 301

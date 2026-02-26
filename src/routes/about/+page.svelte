@@ -26,8 +26,8 @@
 				<span class="mx-2">/</span>
 				<span>About</span>
 			</p>
-			<h1 class="text-5xl lg:text-7xl heading-serif mb-6 text-white fade-in-up" style="animation-delay: 0.1s;">{aboutHero.heading}</h1>
-			<p class="text-xl lg:text-2xl text-gray-300 leading-relaxed fade-in-up" style="animation-delay: 0.3s;">{aboutHero.subheading}</p>
+			<h1 class="text-5xl lg:text-7xl heading-serif mb-6 text-white" use:reveal={{ delay: 100 }}>{aboutHero.heading}</h1>
+			<p class="text-xl lg:text-2xl text-gray-300 leading-relaxed" use:reveal={{ delay: 300 }}>{aboutHero.subheading}</p>
 		</div>
 	</div>
 </section>

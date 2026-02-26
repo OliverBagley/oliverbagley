@@ -1,10 +1,15 @@
 # Global headers
+# Note: X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy,
+# HSTS, and CSP are all set in src/hooks.server.ts so they apply at runtime.
+# The entries below serve as a CDN-level fallback and apply to static assets
+# that are served directly by Cloudflare without invoking the Worker.
 /*
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
-  X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  # X-XSS-Protection is deliberately omitted — it is deprecated and removed from all
+  # modern browsers. Including it can cause false-positive page blocks on old IE.
 
 # Cache static assets
 /css/*

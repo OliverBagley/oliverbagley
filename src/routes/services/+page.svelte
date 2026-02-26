@@ -33,8 +33,8 @@
 				<span class="mx-2">/</span>
 				<span>Services</span>
 			</p>
-			<h1 class="text-5xl lg:text-7xl heading-serif mb-6 text-white fade-in-up" style="animation-delay: 0.1s;">{servicesHero.heading}</h1>
-			<p class="text-xl lg:text-2xl text-gray-300 leading-relaxed fade-in-up" style="animation-delay: 0.3s;">{servicesHero.subheading}</p>
+			<h1 class="text-5xl lg:text-7xl heading-serif mb-6 text-white" use:reveal={{ delay: 100 }}>{servicesHero.heading}</h1>
+			<p class="text-xl lg:text-2xl text-gray-300 leading-relaxed" use:reveal={{ delay: 300 }}>{servicesHero.subheading}</p>
 		</div>
 
 		<!-- Jump links -->
